@@ -1,415 +1,788 @@
-const text="A Beautiful Blessing";
+/* =====================================================
+   KALEIGH BAPTISM INVITATION - MAIN SCRIPT
+   ===================================================== */
 
-let i=0;
 
-function typeWriter(){
+/* =====================================================
+   TYPEWRITER
+   ===================================================== */
 
-if(i<text.length){
+const typingElement = document.getElementById("typing");
 
-document.getElementById("typing").innerHTML+=text.charAt(i);
+const typingText = "A Beautiful Blessing";
 
-i++;
+let typingIndex = 0;
 
-setTimeout(typeWriter,90);
+function typeWriter() {
+
+    if (!typingElement) return;
+
+    if (typingIndex < typingText.length) {
+
+        typingElement.innerHTML += typingText.charAt(typingIndex);
+
+        typingIndex++;
+
+        setTimeout(typeWriter, 90);
+    }
+}
+
+window.addEventListener("load", typeWriter);
+
+
+/* =====================================================
+   LOADER / OPEN INVITATION
+   ===================================================== */
+
+const loader = document.getElementById("loader");
+const envelopeScreen = document.getElementById("envelopeScreen");
+const hero = document.getElementById("hero");
+const enterButton = document.getElementById("enterButton");
+
+
+if (enterButton) {
+
+    enterButton.addEventListener("click", function () {
+
+        /*
+         * Music is handled by the bgMusic player below.
+         * We don't call a nonexistent #music element here.
+         */
+
+        if (loader) {
+
+            loader.style.opacity = "0";
+
+            setTimeout(function () {
+
+                loader.style.display = "none";
+
+                if (envelopeScreen) {
+                    envelopeScreen.style.display = "flex";
+                }
+
+            }, 800);
+        }
+
+    });
+}
+
+
+/* =====================================================
+   ENVELOPE OPENING
+   ===================================================== */
+
+const envelope = document.querySelector(".envelope");
+
+
+if (envelope) {
+
+    envelope.addEventListener("click", function () {
+
+        this.classList.add("open");
+
+        setTimeout(function () {
+
+            if (envelopeScreen) {
+                envelopeScreen.style.opacity = "0";
+            }
+
+        }, 1500);
+
+
+        setTimeout(function () {
+
+            if (envelopeScreen) {
+                envelopeScreen.style.display = "none";
+            }
+
+            if (hero) {
+                hero.style.display = "block";
+            }
+
+            document.body.style.overflow = "auto";
+
+            window.scrollTo(0, 0);
+
+        }, 2200);
+
+    });
 
 }
 
-}
 
-window.onload=function(){
+/* =====================================================
+   FADE-IN SECTIONS
+   ===================================================== */
 
-typeWriter();
+const fadeSections = document.querySelectorAll(".fade");
 
-}
+if (fadeSections.length > 0) {
 
-const loader=document.getElementById("loader");
+    const observer = new IntersectionObserver(function (entries) {
 
-const envelope=document.getElementById("envelopeScreen");
+        entries.forEach(function (entry) {
 
-const hero=document.getElementById("hero");
+            if (entry.isIntersecting) {
 
-const music=document.getElementById("music");
+                entry.target.classList.add("show");
 
-document.getElementById("enterButton").onclick=function(){
+            }
 
-music.volume=.25;
+        });
 
-music.play();
+    });
 
-loader.style.opacity="0";
+    fadeSections.forEach(function (section) {
 
-setTimeout(()=>{
+        observer.observe(section);
 
-loader.style.display="none";
-
-envelope.style.display="flex";
-
-},800);
+    });
 
 }
 
-document.querySelector(".envelope").onclick=function(){
 
-this.classList.add("open");
+/* =====================================================
+   NAME STORY BOOK ANIMATION
+   ===================================================== */
 
-setTimeout(()=>{
+const books = document.querySelectorAll(".book");
 
-envelope.style.opacity="0";
 
-},1500);
+if (books.length > 0) {
 
-setTimeout(()=>{
+    const bookObserver = new IntersectionObserver(function (entries) {
 
-envelope.style.display="none";
+        entries.forEach(function (entry) {
 
-hero.style.display="block";
+            if (entry.isIntersecting) {
 
-document.body.style.overflow="auto";
+                entry.target.animate(
 
-window.scrollTo(0,0);
+                    [
+                        {
+                            opacity: 0,
+                            transform: "translateY(80px) scale(.97)"
+                        },
 
-},2200);
+                        {
+                            opacity: 1,
+                            transform: "translateY(0) scale(1)"
+                        }
+                    ],
 
-}
-const observer=new IntersectionObserver(entries=>{
+                    {
+                        duration: 1400,
+                        fill: "forwards",
+                        easing: "ease"
+                    }
 
-entries.forEach(entry=>{
+                );
 
-if(entry.isIntersecting){
+                bookObserver.unobserve(entry.target);
 
-entry.target.classList.add("show");
+            }
 
-}
+        });
 
-});
+    });
 
-});
 
-document.querySelectorAll(".fade").forEach(section=>{
+    books.forEach(function (book) {
 
-observer.observe(section);
+        book.style.opacity = "0";
 
-});
-const books=document.querySelectorAll(".book");
+        bookObserver.observe(book);
 
-const bookObserver=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.animate(
-
-[
-
-{
-
-opacity:0,
-
-transform:"translateY(80px) scale(.97)"
-
-},
-
-{
-
-opacity:1,
-
-transform:"translateY(0) scale(1)"
+    });
 
 }
 
-],
 
-{
-
-duration:1400,
-
-fill:"forwards",
-
-easing:"ease"
-
-}
-
-);
-
-}
-
-});
-
-});
-
-books.forEach(book=>{
-
-book.style.opacity=0;
-
-bookObserver.observe(book);
-
-});
-/* =======================================
+/* =====================================================
    GALLERY
-======================================= */
+   ===================================================== */
 
-const galleryItems=document.querySelectorAll(".gallery-item");
+const galleryItems = document.querySelectorAll(".gallery-item");
 
-const lightbox=document.getElementById("lightbox");
+const lightbox = document.getElementById("lightbox");
 
-const lightboxImage=document.getElementById("lightboxImage");
+const lightboxImage = document.getElementById("lightboxImage");
 
-const closeLightbox=document.getElementById("closeLightbox");
+const closeLightbox = document.getElementById("closeLightbox");
 
-const prev=document.getElementById("prevPhoto");
+const prevPhoto = document.getElementById("prevPhoto");
 
-const next=document.getElementById("nextPhoto");
+const nextPhoto = document.getElementById("nextPhoto");
 
-let currentPhoto=0;
+let currentPhoto = 0;
 
-/* ---------- Fade Animation ---------- */
 
-const galleryObserver=new IntersectionObserver((entries)=>{
+/* Gallery fade animation */
 
-entries.forEach(entry=>{
+if (galleryItems.length > 0) {
 
-if(entry.isIntersecting){
+    const galleryGrid = document.querySelector(".gallery-grid");
 
-galleryItems.forEach((photo,index)=>{
+    if (galleryGrid) {
 
-setTimeout(()=>{
+        const galleryObserver = new IntersectionObserver(
 
-photo.classList.add("show");
+            function (entries) {
 
-},index*150);
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        galleryItems.forEach(function (photo, index) {
+
+                            setTimeout(function () {
+
+                                photo.classList.add("show");
+
+                            }, index * 150);
+
+                        });
+
+                        galleryObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.2
+            }
+
+        );
+
+        galleryObserver.observe(galleryGrid);
+
+    }
+
+}
+
+
+/* Gallery lightbox */
+
+function showPhoto() {
+
+    if (!lightboxImage || galleryItems.length === 0) return;
+
+    lightboxImage.src = galleryItems[currentPhoto].src;
+
+}
+
+
+galleryItems.forEach(function (photo, index) {
+
+    photo.addEventListener("click", function () {
+
+        currentPhoto = index;
+
+        showPhoto();
+
+        if (lightbox) {
+            lightbox.style.display = "flex";
+        }
+
+        document.body.style.overflow = "hidden";
+
+    });
 
 });
 
-}
 
-});
+if (nextPhoto) {
 
-},{threshold:.2});
+    nextPhoto.addEventListener("click", function () {
 
-galleryObserver.observe(document.querySelector(".gallery-grid"));
+        currentPhoto++;
 
-/* ---------- Lightbox ---------- */
+        if (currentPhoto >= galleryItems.length) {
+            currentPhoto = 0;
+        }
 
-galleryItems.forEach((photo,index)=>{
+        showPhoto();
 
-photo.addEventListener("click",()=>{
-
-currentPhoto=index;
-
-showPhoto();
-
-lightbox.style.display="flex";
-
-document.body.style.overflow="hidden";
-
-});
-
-});
-
-function showPhoto(){
-
-lightboxImage.src=galleryItems[currentPhoto].src;
+    });
 
 }
 
-next.onclick=()=>{
 
-currentPhoto++;
+if (prevPhoto) {
 
-if(currentPhoto>=galleryItems.length){
+    prevPhoto.addEventListener("click", function () {
 
-currentPhoto=0;
+        currentPhoto--;
 
-}
+        if (currentPhoto < 0) {
+            currentPhoto = galleryItems.length - 1;
+        }
 
-showPhoto();
+        showPhoto();
 
-}
-
-prev.onclick=()=>{
-
-currentPhoto--;
-
-if(currentPhoto<0){
-
-currentPhoto=galleryItems.length-1;
+    });
 
 }
 
-showPhoto();
+
+if (closeLightbox) {
+
+    closeLightbox.addEventListener("click", function () {
+
+        if (lightbox) {
+            lightbox.style.display = "none";
+        }
+
+        document.body.style.overflow = "auto";
+
+    });
 
 }
 
-closeLightbox.onclick=()=>{
 
-lightbox.style.display="none";
+if (lightbox) {
 
-document.body.style.overflow="auto";
+    lightbox.addEventListener("click", function (event) {
 
-}
+        if (event.target === lightbox) {
 
-lightbox.onclick=(e)=>{
+            lightbox.style.display = "none";
 
-if(e.target===lightbox){
-
-lightbox.style.display="none";
-
-document.body.style.overflow="auto";
-
-}
-
-}
-/* =======================================
-BIRTH CARDS
-======================================= */
-
-const birthCards=document.querySelectorAll(".birth-card");
-
-const birthObserver=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-birthCards.forEach((card,index)=>{
-
-setTimeout(()=>{
-
-card.classList.add("show");
-
-},index*180);
-
-});
-
-}
-
-});
-
-},{threshold:.25});
-
-birthObserver.observe(document.querySelector(".birth-grid"));
-/* =======================================
-COUNTDOWN
-======================================= */
-
-const targetDate=new Date("September 26, 2026 10:00:00").getTime();
-
-setInterval(()=>{
-
-const now=new Date().getTime();
-
-const distance=targetDate-now;
-
-document.getElementById("days").innerHTML=Math.floor(distance/(1000*60*60*24));
-
-document.getElementById("hours").innerHTML=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-document.getElementById("minutes").innerHTML=Math.floor((distance%(1000*60*60))/(1000*60));
-
-document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/1000);
-
-},1000);
-const timelineItems = document.querySelectorAll(".timeline-item");
-
-const timelineObserver = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
+            document.body.style.overflow = "auto";
 
         }
 
     });
 
-},{
-
-    threshold:.25
-
-});
-
-timelineItems.forEach(item=>{
-
-    timelineObserver.observe(item);
-
-});
-const form = document.getElementById("rsvpForm");
-const popup = document.getElementById("successPopup");
-
-form.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    popup.classList.add("show");
-
-    form.reset();
-
-});
-
-function closePopup(){
-
-    popup.classList.remove("show");
-
-}
-window.addEventListener("scroll",()=>{
-
-    const winScroll=document.documentElement.scrollTop;
-
-    const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-
-    document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
-
-});
-const topBtn=document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>500){
-
-topBtn.style.display="block";
-
-}else{
-
-topBtn.style.display="none";
-
 }
 
-});
 
-topBtn.onclick=()=>{
+/* =====================================================
+   BIRTH CARDS
+   ===================================================== */
 
-window.scrollTo({
+const birthCards = document.querySelectorAll(".birth-card");
 
-top:0,
 
-behavior:"smooth"
+if (birthCards.length > 0) {
 
-});
+    const birthGrid = document.querySelector(".birth-grid");
 
-};
-const bgMusic = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
+    if (birthGrid) {
 
-let playing = false;
+        const birthObserver = new IntersectionObserver(
 
-musicBtn.addEventListener("click", () => {
+            function (entries) {
 
-    if (playing) {
+                entries.forEach(function (entry) {
 
-        bgMusic.pause();
+                    if (entry.isIntersecting) {
 
-        musicBtn.innerHTML = "♪";
+                        birthCards.forEach(function (card, index) {
 
-    } else {
+                            setTimeout(function () {
 
-        bgMusic.play();
+                                card.classList.add("show");
 
-        musicBtn.innerHTML = "❚❚";
+                            }, index * 180);
+
+                        });
+
+                        birthObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.25
+            }
+
+        );
+
+        birthObserver.observe(birthGrid);
 
     }
 
-    playing = !playing;
+}
+
+
+/* =====================================================
+   COUNTDOWN
+   ===================================================== */
+
+const targetDate = new Date(
+    "September 26, 2026 10:00:00"
+).getTime();
+
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+
+
+    if (
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
+    ) {
+        return;
+    }
+
+
+    if (distance <= 0) {
+
+        daysElement.innerHTML = "00";
+        hoursElement.innerHTML = "00";
+        minutesElement.innerHTML = "00";
+        secondsElement.innerHTML = "00";
+
+        return;
+    }
+
+
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+
+    daysElement.innerHTML = String(days).padStart(2, "0");
+
+    hoursElement.innerHTML = String(hours).padStart(2, "0");
+
+    minutesElement.innerHTML = String(minutes).padStart(2, "0");
+
+    secondsElement.innerHTML = String(seconds).padStart(2, "0");
+
+}
+
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+/* =====================================================
+   TIMELINE
+   ===================================================== */
+
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+
+if (timelineItems.length > 0) {
+
+    const timelineObserver = new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    timelineObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.25
+        }
+
+    );
+
+
+    timelineItems.forEach(function (item) {
+
+        timelineObserver.observe(item);
+
+    });
+
+}
+
+
+/* =====================================================
+   RSVP
+   ===================================================== */
+
+const rsvpForm = document.getElementById("rsvpForm");
+
+const successPopup = document.getElementById("successPopup");
+
+const closePopupButton = document.getElementById("closePopupButton");
+
+
+if (rsvpForm) {
+
+    rsvpForm.addEventListener("submit", function (event) {
+
+        /*
+         * IMPORTANT:
+         * Stop the browser from refreshing/submitting the form.
+         */
+
+        event.preventDefault();
+
+        console.log("RSVP form submitted");
+
+
+        /*
+         * Show success popup
+         */
+
+        if (successPopup) {
+
+            successPopup.classList.add("show");
+
+            console.log("RSVP popup opened");
+
+        } else {
+
+            console.error(
+                "RSVP ERROR: #successPopup was not found in the HTML."
+            );
+
+        }
+
+
+        /*
+         * Clear form
+         */
+
+        rsvpForm.reset();
+
+    });
+
+}
+
+
+/* =====================================================
+   CLOSE RSVP POPUP
+   ===================================================== */
+
+function closePopup() {
+
+    if (successPopup) {
+
+        successPopup.classList.remove("show");
+
+    }
+
+}
+
+
+/*
+ * Make closePopup available to HTML onclick=""
+ */
+
+window.closePopup = closePopup;
+
+
+if (closePopupButton) {
+
+    closePopupButton.addEventListener("click", function () {
+
+        closePopup();
+
+    });
+
+}
+
+
+/* =====================================================
+   MUSIC PLAYER
+   ===================================================== */
+
+const bgMusic = document.getElementById("bgMusic");
+
+const musicButton = document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+
+if (musicButton && bgMusic) {
+
+    musicButton.addEventListener("click", function () {
+
+        if (musicPlaying) {
+
+            bgMusic.pause();
+
+            musicButton.innerHTML = "♪";
+
+            musicPlaying = false;
+
+        } else {
+
+            bgMusic.play()
+                .then(function () {
+
+                    musicButton.innerHTML = "❚❚";
+
+                    musicPlaying = true;
+
+                })
+                .catch(function (error) {
+
+                    console.log(
+                        "Music could not be played:",
+                        error
+                    );
+
+                });
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   SCROLL PROGRESS BAR
+   ===================================================== */
+
+window.addEventListener("scroll", function () {
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    if (!progressBar) return;
+
+
+    const winScroll =
+        document.documentElement.scrollTop;
+
+    const height =
+        document.documentElement.scrollHeight
+        - document.documentElement.clientHeight;
+
+
+    if (height > 0) {
+
+        progressBar.style.width =
+            (winScroll / height) * 100 + "%";
+
+    }
+
+});
+
+
+/* =====================================================
+   BACK TO TOP BUTTON
+   ===================================================== */
+
+const topButton = document.getElementById("topBtn");
+
+
+if (topButton) {
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 500) {
+
+            topButton.style.display = "block";
+
+        } else {
+
+            topButton.style.display = "none";
+
+        }
+
+    });
+
+
+    topButton.addEventListener("click", function () {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+/* =========================================
+   RSVP POPUP TEST
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const rsvpForm = document.getElementById("rsvpForm");
+    const successPopup = document.getElementById("successPopup");
+    const closePopupButton = document.getElementById("closePopupButton");
+
+    console.log("RSVP form:", rsvpForm);
+    console.log("Success popup:", successPopup);
+    console.log("Close button:", closePopupButton);
+
+    if (!rsvpForm) {
+        console.error("❌ rsvpForm was NOT found.");
+        return;
+    }
+
+    if (!successPopup) {
+        console.error("❌ successPopup was NOT found.");
+        return;
+    }
+
+    rsvpForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        console.log("✅ RSVP SUBMITTED");
+
+        successPopup.classList.add("show");
+
+        rsvpForm.reset();
+
+    });
+
+    if (closePopupButton) {
+
+        closePopupButton.addEventListener("click", function () {
+
+            successPopup.classList.remove("show");
+
+        });
+
+    }
 
 });

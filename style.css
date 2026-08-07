@@ -2420,3 +2420,1604 @@ background:#b89559;
 color:white;
 
 }
+
+
+
+/* =========================================================
+   FINAL MOBILE RESPONSIVE DESIGN
+   Desktop design remains unchanged
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       GLOBAL MOBILE FIX
+       ----------------------------------------------------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    section {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0 auto;
+    }
+
+
+    /* -----------------------------------------------------
+       OPENING / LOADER
+       ----------------------------------------------------- */
+
+    .loader-content {
+        width: calc(100% - 40px);
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .loader-content h1 {
+        font-size: clamp(28px, 8vw, 42px);
+        line-height: 1.15;
+        overflow-wrap: break-word;
+    }
+
+    .loader-content h2 {
+        font-size: clamp(20px, 6vw, 30px);
+        line-height: 1.25;
+        overflow-wrap: break-word;
+    }
+
+    .loader-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    #enterButton {
+        max-width: 100%;
+        width: auto;
+        min-width: 180px;
+        padding: 13px 22px;
+        font-size: 14px;
+    }
+
+
+    /* -----------------------------------------------------
+       ENVELOPE
+       ----------------------------------------------------- */
+
+    .envelope {
+        transform: scale(.72);
+        transform-origin: center center;
+        max-width: 100%;
+    }
+
+    .envelope-screen,
+    #envelopeScreen {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero {
+        width: 100%;
+        min-height: auto;
+        overflow: hidden;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 12vw, 70px);
+        line-height: 1.05;
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-wrap: break-word;
+    }
+
+    .hero h2 {
+        font-size: clamp(22px, 7vw, 36px);
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* -----------------------------------------------------
+       GENERAL SECTION TITLES
+       ----------------------------------------------------- */
+
+    .section-title {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-title span,
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+        font-size: clamp(26px, 8vw, 42px);
+        line-height: 1.15;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------------------
+       OUR PRECIOUS LITTLE BLESSING
+       ----------------------------------------------------- */
+
+    .section.fade {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .section.fade .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .section.fade .container h2 {
+        font-size: clamp(27px, 8vw, 42px);
+        line-height: 1.15;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+
+    .section.fade .container p {
+        font-size: 15px;
+        line-height: 1.75;
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       OUR LITTLE FAMILY
+       ----------------------------------------------------- */
+
+    .family-text {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .family-text .small-title {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .family-text h2 {
+        font-size: clamp(27px, 8vw, 40px);
+        line-height: 1.15;
+        overflow-wrap: break-word;
+    }
+
+    .family-text p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* -----------------------------------------------------
+       NAME STORY / BOOK
+       ----------------------------------------------------- */
+
+    .name-story {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    .name-story .book {
+        width: calc(100% - 30px);
+        max-width: 650px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px 20px;
+    }
+
+    .name-story .book.reverse {
+        flex-direction: column;
+    }
+
+    .book-left,
+    .book-right {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .book-left {
+        text-align: center;
+    }
+
+    .book-left .chapter {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .book-left h2 {
+        font-size: clamp(27px, 8vw, 40px);
+        line-height: 1.15;
+        overflow-wrap: break-word;
+    }
+
+    .book-left .intro {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .book-right {
+        text-align: left;
+    }
+
+    .book-right p {
+        font-size: 15px;
+        line-height: 1.8;
+        margin: 0;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .book-right strong {
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------------------
+       SECOND NAME STORY - FRANZELLE
+       ----------------------------------------------------- */
+
+    .name-story.second {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .name-story.second .book-left h2 {
+        font-size: clamp(30px, 9vw, 44px);
+    }
+
+    .name-story.second .book-right p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+
+    /* -----------------------------------------------------
+       TIMELINE / OUR JOURNEY
+       ----------------------------------------------------- */
+
+    .timeline {
+        width: calc(100% - 40px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .timeline-item {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .timeline-content {
+        width: calc(100% - 45px);
+        max-width: calc(100% - 45px);
+        padding: 18px;
+        overflow-wrap: break-word;
+    }
+
+    .timeline-content h3 {
+        font-size: 17px;
+        line-height: 1.3;
+    }
+
+    .timeline-content h4 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .timeline-content p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    /* -----------------------------------------------------
+       BIRTH DETAILS
+       ----------------------------------------------------- */
+
+    .birth-header {
+        width: calc(100% - 40px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .birth-header h2 {
+        font-size: clamp(27px, 8vw, 40px);
+        line-height: 1.15;
+    }
+
+    .birth-header p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .birth-grid {
+        width: calc(100% - 40px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .birth-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       INVITATION CARD
+       ----------------------------------------------------- */
+
+    .invitation-card {
+        width: calc(100% - 40px);
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 35px 22px;
+        overflow: hidden;
+    }
+
+    .invitation-card h1 {
+        font-size: clamp(32px, 10vw, 55px);
+        line-height: 1.05;
+        overflow-wrap: break-word;
+    }
+
+    .invitation-card h2.date-big {
+        font-size: clamp(23px, 7vw, 36px);
+        line-height: 1.2;
+        overflow-wrap: break-word;
+    }
+
+    .invitation-card h3 {
+        font-size: 20px;
+    }
+
+    .invitation-card .parents {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .invitation-card p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .church-name {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* -----------------------------------------------------
+       EVENT DETAILS
+       ----------------------------------------------------- */
+
+    .venue-grid {
+        width: calc(100% - 40px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .venue-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .venue-card h3 {
+        font-size: 20px;
+    }
+
+    .venue-card h4 {
+        font-size: 18px;
+    }
+
+    .venue-card p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .venue-btn {
+        max-width: 100%;
+    }
+
+    .schedule-card {
+        width: calc(100% - 40px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+    }
+
+    .schedule-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .schedule-row span {
+        flex: 0 0 auto;
+        font-size: 13px;
+    }
+
+    .schedule-row p {
+        min-width: 0;
+        font-size: 14px;
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------------------
+       COUNTDOWN
+       2 COLUMNS ON MOBILE
+       ----------------------------------------------------- */
+
+    .countdown-grid {
+        width: calc(100% - 40px);
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .count-card {
+        width: 100%;
+        min-width: 0;
+        padding: 20px 10px;
+    }
+
+    .count-card h3 {
+        font-size: clamp(28px, 9vw, 45px);
+        line-height: 1;
+    }
+
+    .count-card p {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+
+    /* -----------------------------------------------------
+       GALLERY
+       ----------------------------------------------------- */
+
+    .gallery-header {
+        width: calc(100% - 40px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .gallery-header h2 {
+        font-size: clamp(24px, 7vw, 36px);
+        line-height: 1.2;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .gallery-header p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .gallery-grid {
+        width: calc(100% - 30px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-item {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+
+
+    /* -----------------------------------------------------
+       LIGHTBOX
+       ----------------------------------------------------- */
+
+    #lightbox {
+        padding: 15px;
+    }
+
+    #lightboxImage {
+        max-width: 92vw;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    #prevPhoto,
+    #nextPhoto {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+
+    /* -----------------------------------------------------
+       RSVP
+       ----------------------------------------------------- */
+
+    .rsvp-card {
+        width: calc(100% - 30px);
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 25px 18px;
+    }
+
+    #rsvpForm {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .form-group {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+
+
+    /* -----------------------------------------------------
+       SUCCESS POPUP
+       ----------------------------------------------------- */
+
+    .success-content {
+        width: calc(100% - 40px);
+        max-width: 400px;
+        padding: 30px 20px;
+        margin: 0 auto;
+    }
+
+    .success-content h2 {
+        font-size: 28px;
+    }
+
+    .success-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* -----------------------------------------------------
+       SCROLL / TOP BUTTON
+       ----------------------------------------------------- */
+
+    #topBtn {
+        right: 15px;
+        bottom: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   Extra adjustment for 375px and smaller
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section-title {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+    .section.fade .container h2 {
+        font-size: 27px;
+    }
+
+    .family-text {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .name-story .book {
+        width: calc(100% - 24px);
+        padding: 22px 17px;
+    }
+
+    .book-left h2 {
+        font-size: 28px;
+    }
+
+    .book-right p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .timeline {
+        width: calc(100% - 30px);
+    }
+
+    .gallery-header {
+        width: calc(100% - 30px);
+    }
+
+    .gallery-header h2 {
+        font-size: 25px;
+    }
+
+    .countdown-grid {
+        width: calc(100% - 30px);
+        gap: 10px;
+    }
+
+    .count-card {
+        padding: 18px 8px;
+    }
+
+    .count-card h3 {
+        font-size: 31px;
+    }
+
+    .count-card p {
+        font-size: 10px;
+    }
+
+    .invitation-card {
+        width: calc(100% - 30px);
+        padding: 30px 17px;
+    }
+
+}/* =========================================================
+   FINAL MOBILE POLISH
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       TYPING — "A Beautiful Blessing"
+       Prevents it from taking over the opening screen
+       ----------------------------------------------------- */
+
+    #typing {
+        font-size: clamp(22px, 6vw, 32px) !important;
+        line-height: 1.15;
+        max-width: 90%;
+        margin: 10px auto;
+        min-height: auto;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+
+    /* -----------------------------------------------------
+       NAME STORY CARDS
+       Remove desktop book/card constraints on mobile
+       so paragraphs don't get clipped on the left/right.
+       ----------------------------------------------------- */
+
+    .name-story .book,
+    .name-story .book.reverse {
+        width: calc(100% - 24px);
+        max-width: 650px;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 28px 20px;
+        margin-left: auto;
+        margin-right: auto;
+
+        overflow: visible;
+    }
+
+    .name-story .book-left,
+    .name-story .book-right {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 0;
+        margin: 0;
+
+        overflow: visible;
+    }
+
+
+    /* -----------------------------------------------------
+       STORY PARAGRAPHS
+       Give the text its own clean reading area
+       ----------------------------------------------------- */
+
+    .name-story .book-right {
+        width: 100%;
+        padding: 0;
+        text-align: left;
+    }
+
+    .name-story .book-right p {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        font-size: 15px;
+        line-height: 1.8;
+
+        text-align: left;
+
+        overflow: visible;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+
+    /* -----------------------------------------------------
+       PREVENT THE DECORATIVE BOOK EFFECT FROM
+       CUTTING OFF THE FIRST WORDS OF PARAGRAPHS
+       ----------------------------------------------------- */
+
+    .name-story .book-right::before,
+    .name-story .book-right::after {
+        display: none;
+    }
+
+
+    /* -----------------------------------------------------
+       FRANZELLE STORY
+       ----------------------------------------------------- */
+
+    .name-story.second .book,
+    .name-story.second .book.reverse {
+        width: calc(100% - 24px);
+        padding: 28px 20px;
+    }
+
+    .name-story.second .book-right {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .name-story.second .book-right p {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+
+        font-size: 15px;
+        line-height: 1.8;
+
+        text-align: left;
+
+        overflow: visible;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    #typing {
+        font-size: 24px !important;
+        max-width: 85%;
+    }
+
+    .name-story .book,
+    .name-story .book.reverse,
+    .name-story.second .book,
+    .name-story.second .book.reverse {
+        width: calc(100% - 20px);
+        padding: 24px 16px;
+    }
+
+    .name-story .book-right p,
+    .name-story.second .book-right p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+}
+@media (max-width: 768px) {
+
+    /* ==========================================
+       NAME STORY — CLEAN MOBILE LAYOUT
+       ========================================== */
+
+    .name-story .book,
+    .name-story .book.reverse {
+        width: calc(100% - 32px);
+        max-width: 620px;
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+
+        padding: 30px 22px;
+
+        overflow: visible;
+    }
+
+    .name-story .book-left,
+    .name-story .book-right {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Title area */
+
+    .name-story .book-left {
+        text-align: center;
+    }
+
+    .name-story .chapter {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        margin-bottom: 12px;
+    }
+
+    .name-story .book-left h2 {
+        font-size: clamp(27px, 8vw, 38px);
+        line-height: 1.15;
+        margin: 0 auto 15px;
+    }
+
+    .name-story .book-left .intro {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-top: 15px;
+    }
+
+    /* Story text */
+
+    .name-story .book-right {
+        text-align: left;
+    }
+
+    .name-story .book-right p {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0 0 20px;
+        padding: 0;
+
+        font-size: 14.5px;
+        line-height: 1.85;
+
+        overflow: visible;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .name-story .book-right p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Franzelle section */
+
+    .name-story.second .book {
+        gap: 28px;
+    }
+
+    .name-story.second .book-left h2 {
+        font-size: clamp(30px, 9vw, 42px);
+    }
+
+    .name-story.second .book-right p {
+        font-size: 14.5px;
+        line-height: 1.85;
+        margin-bottom: 20px;
+    }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+   ========================================== */
+
+@media (max-width: 390px) {
+
+    .name-story .book,
+    .name-story .book.reverse {
+        width: calc(100% - 24px);
+        padding: 27px 18px;
+        gap: 25px;
+    }
+
+    .name-story .book-right p,
+    .name-story.second .book-right p {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 18px;
+    }
+
+}
+/* =========================================================
+   MOBILE — NAME STORY SPACING & CARD FIX
+   Desktop remains unchanged
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       STORY BEHIND HER NAME
+       ----------------------------------------- */
+
+    .name-story {
+        padding: 45px 16px;
+        overflow: hidden;
+    }
+
+    .name-story .book {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        overflow: visible;
+    }
+
+    .name-story .book-left,
+    .name-story .book-right {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    /* Chapter / title side */
+
+    .name-story .book-left {
+        padding: 28px 22px 20px;
+        text-align: center;
+    }
+
+    .name-story .book-left h2 {
+        font-size: clamp(26px, 7vw, 34px);
+        line-height: 1.15;
+        margin: 8px 0 12px;
+        word-break: normal;
+    }
+
+    .name-story .chapter {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    .name-story .book-left .intro {
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0 auto;
+        max-width: 300px;
+    }
+
+    /* -----------------------------------------
+       STORY TEXT
+       Prevent text from being clipped
+       ----------------------------------------- */
+
+    .name-story .book-right {
+        padding: 10px 24px 28px;
+        text-align: left;
+    }
+
+    .name-story .book-right p {
+        font-size: 15px;
+        line-height: 1.85;
+        margin: 0;
+        word-break: normal;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .name-story .book-right strong {
+        white-space: normal;
+    }
+
+    /* -----------------------------------------
+       GOLD LINE
+       ----------------------------------------- */
+
+    .name-story .gold-line {
+        width: 55px;
+        margin: 10px auto 14px;
+    }
+
+/* =========================================
+   FRANZELLE — MOBILE
+   Match Story Behind Her Name
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .name-story.second {
+        padding: 5px 16px 45px;
+        margin-top: -5px;
+        overflow: hidden;
+    }
+
+    .name-story.second .book {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        overflow: visible;
+    }
+
+    /* Franzelle title */
+
+    .name-story.second .book-left {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 28px 22px 20px;
+        text-align: center;
+    }
+
+    .name-story.second .book-left h2 {
+        font-size: clamp(26px, 7vw, 34px);
+        line-height: 1.15;
+        margin: 0 0 12px;
+    }
+
+    .name-story.second .book-left .gold-line {
+        width: 55px;
+        margin: 10px auto 14px;
+    }
+
+    .name-story.second .book-left p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0 auto;
+    }
+
+    /* Franzelle story */
+
+    .name-story.second .book-right {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 24px 32px;
+        text-align: left;
+        overflow: visible;
+    }
+
+    .name-story.second .book-right p {
+        font-size: 15px;
+        line-height: 1.85;
+        margin: 0;
+        padding: 0;
+        word-break: normal;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .name-story.second .book-right strong {
+        white-space: normal;
+    }
+    /* -----------------------------------------
+       EXTRA MOBILE SPACING CONTROL
+       ----------------------------------------- */
+
+    .name-story + .name-story {
+        margin-top: -10px;
+    }
+
+}
+/* =========================================
+   RSVP SUCCESS POPUP
+========================================= */
+
+.success-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(30, 25, 20, 0.55);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* SHOW POPUP */
+
+.success-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* POPUP CARD */
+
+.success-popup .success-content {
+
+    width: min(90%, 420px);
+
+    padding: 45px 35px;
+
+    background: #fffaf5;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.2);
+
+    transform: translateY(20px) scale(0.95);
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+/* CARD ANIMATION */
+
+.success-popup.show .success-content {
+
+    transform: translateY(0) scale(1);
+
+}
+
+
+/* HEART */
+
+.success-icon {
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* TITLE */
+
+.success-popup h2 {
+
+    margin: 0 0 15px;
+
+    font-size: 30px;
+
+}
+
+
+/* MESSAGE */
+
+.success-popup p {
+
+    margin: 0 auto 25px;
+
+    max-width: 320px;
+
+    line-height: 1.7;
+
+}
+
+
+/* CLOSE BUTTON */
+
+.success-popup button {
+
+    border: none;
+
+    padding: 12px 30px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================
+   MOBILE RSVP POPUP
+========================================= */
+
+@media (max-width: 600px) {
+
+    .success-popup {
+        padding: 18px;
+    }
+
+    .success-popup .success-content {
+
+        width: 100%;
+
+        max-width: 350px;
+
+        padding: 35px 24px;
+
+        border-radius: 18px;
+
+    }
+
+    .success-icon {
+        font-size: 36px;
+    }
+
+    .success-popup h2 {
+        font-size: 26px;
+    }
+
+    .success-popup p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .success-popup button {
+        width: 100%;
+    }
+
+}
+/* =========================================
+   RSVP SUCCESS POPUP - FINAL FIX
+========================================= */
+
+#successPopup {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 20px !important;
+    box-sizing: border-box !important;
+
+    background: rgba(0, 0, 0, 0.55) !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    z-index: 999999 !important;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease !important;
+}
+
+#successPopup.show {
+    display: flex !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+
+    z-index: 999999 !important;
+}
+
+
+#successPopup .success-content {
+    position: relative !important;
+
+    display: block !important;
+
+    width: min(90vw, 420px) !important;
+    max-width: 420px !important;
+
+    min-height: 200px !important;
+
+    box-sizing: border-box !important;
+
+    margin: auto !important;
+    padding: 40px 30px !important;
+
+    background: #fffaf5 !important;
+
+    color: #333 !important;
+
+    border-radius: 20px !important;
+
+    text-align: center !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: none !important;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+
+    z-index: 1000000 !important;
+}
+
+
+#successPopup .success-icon {
+    display: block !important;
+
+    font-size: 42px !important;
+
+    margin-bottom: 15px !important;
+}
+
+
+#successPopup .success-content h2 {
+    display: block !important;
+
+    margin: 0 0 15px !important;
+
+    color: #333 !important;
+
+    font-size: 30px !important;
+}
+
+
+#successPopup .success-content p {
+    display: block !important;
+
+    margin: 0 0 25px !important;
+
+    color: #555 !important;
+
+    font-size: 15px !important;
+
+    line-height: 1.7 !important;
+}
+
+
+#successPopup #closePopupButton {
+    display: inline-block !important;
+
+    padding: 12px 30px !important;
+
+    border: none !important;
+    border-radius: 30px !important;
+
+    background: #333 !important;
+    color: white !important;
+
+    cursor: pointer !important;
+
+    font-size: 15px !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+@media (max-width: 600px) {
+
+    #successPopup {
+        padding: 18px !important;
+    }
+
+    #successPopup .success-content {
+        width: 100% !important;
+        max-width: 360px !important;
+
+        padding: 35px 22px !important;
+    }
+
+    #successPopup .success-content h2 {
+        font-size: 26px !important;
+    }
+
+}
+/* =========================================
+   RSVP SUCCESS POPUP
+   ========================================= */
+
+.success-popup {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    z-index: 99999;
+}
+
+.success-popup.show {
+    display: flex !important;
+}
+
+.success-content {
+    width: 100%;
+    max-width: 420px;
+
+    background: #fffaf5;
+
+    padding: 40px 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+    position: relative;
+
+    z-index: 100000;
+}
+
+.success-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.success-content h2 {
+    margin: 0 0 15px;
+}
+
+.success-content p {
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.success-content button {
+    padding: 12px 30px;
+
+    border: none;
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .success-popup {
+        padding: 20px;
+    }
+
+    .success-content {
+        max-width: 360px;
+        padding: 32px 22px;
+    }
+
+    .success-content h2 {
+        font-size: 26px;
+    }
+
+    .success-content p {
+        font-size: 15px;
+    }
+
+    .success-content button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+}
