@@ -1,5 +1,6 @@
 /* =====================================================
-   KALEIGH BAPTISM INVITATION - MAIN SCRIPT
+   KALEIGH BAPTISM INVITATION
+   MAIN JAVASCRIPT
    ===================================================== */
 
 
@@ -15,7 +16,9 @@ let typingIndex = 0;
 
 function typeWriter() {
 
-    if (!typingElement) return;
+    if (!typingElement) {
+        return;
+    }
 
     if (typingIndex < typingText.length) {
 
@@ -24,10 +27,16 @@ function typeWriter() {
         typingIndex++;
 
         setTimeout(typeWriter, 90);
+
     }
+
 }
 
-window.addEventListener("load", typeWriter);
+window.addEventListener("load", function () {
+
+    typeWriter();
+
+});
 
 
 /* =====================================================
@@ -35,8 +44,11 @@ window.addEventListener("load", typeWriter);
    ===================================================== */
 
 const loader = document.getElementById("loader");
+
 const envelopeScreen = document.getElementById("envelopeScreen");
+
 const hero = document.getElementById("hero");
+
 const enterButton = document.getElementById("enterButton");
 
 
@@ -45,8 +57,7 @@ if (enterButton) {
     enterButton.addEventListener("click", function () {
 
         /*
-         * Music is handled by the bgMusic player below.
-         * We don't call a nonexistent #music element here.
+         * Fade out the opening loader.
          */
 
         if (loader) {
@@ -57,14 +68,25 @@ if (enterButton) {
 
                 loader.style.display = "none";
 
+                /*
+                 * Show the envelope after
+                 * the loader disappears.
+                 */
+
                 if (envelopeScreen) {
+
                     envelopeScreen.style.display = "flex";
+
+                    envelopeScreen.style.opacity = "1";
+
                 }
 
             }, 800);
+
         }
 
     });
+
 }
 
 
@@ -79,30 +101,66 @@ if (envelope) {
 
     envelope.addEventListener("click", function () {
 
+        /*
+         * Trigger envelope CSS animation.
+         */
+
         this.classList.add("open");
+
+
+        /*
+         * Begin fading the envelope screen.
+         */
 
         setTimeout(function () {
 
             if (envelopeScreen) {
+
                 envelopeScreen.style.opacity = "0";
+
             }
 
         }, 1500);
 
 
+        /*
+         * Remove envelope screen and
+         * reveal the invitation.
+         */
+
         setTimeout(function () {
 
             if (envelopeScreen) {
+
                 envelopeScreen.style.display = "none";
+
             }
 
             if (hero) {
+
                 hero.style.display = "block";
+
             }
+
+
+            /*
+             * Enable page scrolling.
+             */
 
             document.body.style.overflow = "auto";
 
-            window.scrollTo(0, 0);
+
+            /*
+             * Start invitation at the top.
+             */
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "instant"
+
+            });
 
         }, 2200);
 
@@ -117,21 +175,31 @@ if (envelope) {
 
 const fadeSections = document.querySelectorAll(".fade");
 
+
 if (fadeSections.length > 0) {
 
-    const observer = new IntersectionObserver(function (entries) {
+    const observer = new IntersectionObserver(
 
-        entries.forEach(function (entry) {
+        function (entries) {
 
-            if (entry.isIntersecting) {
+            entries.forEach(function (entry) {
 
-                entry.target.classList.add("show");
+                if (entry.isIntersecting) {
 
-            }
+                    entry.target.classList.add("show");
 
-        });
+                }
 
-    });
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
 
     fadeSections.forEach(function (section) {
 
@@ -151,41 +219,50 @@ const books = document.querySelectorAll(".book");
 
 if (books.length > 0) {
 
-    const bookObserver = new IntersectionObserver(function (entries) {
+    const bookObserver = new IntersectionObserver(
 
-        entries.forEach(function (entry) {
+        function (entries) {
 
-            if (entry.isIntersecting) {
+            entries.forEach(function (entry) {
 
-                entry.target.animate(
+                if (entry.isIntersecting) {
 
-                    [
+                    entry.target.animate(
+
+                        [
+                            {
+                                opacity: 0,
+                                transform: "translateY(80px) scale(.97)"
+                            },
+
+                            {
+                                opacity: 1,
+                                transform: "translateY(0) scale(1)"
+                            }
+                        ],
+
                         {
-                            opacity: 0,
-                            transform: "translateY(80px) scale(.97)"
-                        },
-
-                        {
-                            opacity: 1,
-                            transform: "translateY(0) scale(1)"
+                            duration: 1400,
+                            fill: "forwards",
+                            easing: "ease"
                         }
-                    ],
 
-                    {
-                        duration: 1400,
-                        fill: "forwards",
-                        easing: "ease"
-                    }
+                    );
 
-                );
 
-                bookObserver.unobserve(entry.target);
+                    bookObserver.unobserve(entry.target);
 
-            }
+                }
 
-        });
+            });
 
-    });
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
 
 
     books.forEach(function (book) {
@@ -218,45 +295,57 @@ const nextPhoto = document.getElementById("nextPhoto");
 let currentPhoto = 0;
 
 
-/* Gallery fade animation */
+/* =====================================================
+   GALLERY FADE ANIMATION
+   ===================================================== */
 
 if (galleryItems.length > 0) {
 
-    const galleryGrid = document.querySelector(".gallery-grid");
+    const galleryGrid =
+        document.querySelector(".gallery-grid");
+
 
     if (galleryGrid) {
 
-        const galleryObserver = new IntersectionObserver(
+        const galleryObserver =
+            new IntersectionObserver(
 
-            function (entries) {
+                function (entries) {
 
-                entries.forEach(function (entry) {
+                    entries.forEach(function (entry) {
 
-                    if (entry.isIntersecting) {
+                        if (entry.isIntersecting) {
 
-                        galleryItems.forEach(function (photo, index) {
+                            galleryItems.forEach(
+                                function (photo, index) {
 
-                            setTimeout(function () {
+                                    setTimeout(
+                                        function () {
 
-                                photo.classList.add("show");
+                                            photo.classList.add("show");
 
-                            }, index * 150);
+                                        },
+                                        index * 150
+                                    );
 
-                        });
+                                }
+                            );
 
-                        galleryObserver.unobserve(entry.target);
 
-                    }
+                            galleryObserver.unobserve(entry.target);
 
-                });
+                        }
 
-            },
+                    });
 
-            {
-                threshold: 0.2
-            }
+                },
 
-        );
+                {
+                    threshold: 0.2
+                }
+
+            );
+
 
         galleryObserver.observe(galleryGrid);
 
@@ -265,16 +354,32 @@ if (galleryItems.length > 0) {
 }
 
 
-/* Gallery lightbox */
+/* =====================================================
+   GALLERY LIGHTBOX
+   ===================================================== */
 
 function showPhoto() {
 
-    if (!lightboxImage || galleryItems.length === 0) return;
+    if (!lightboxImage) {
+        return;
+    }
 
-    lightboxImage.src = galleryItems[currentPhoto].src;
+    if (galleryItems.length === 0) {
+        return;
+    }
+
+    lightboxImage.src =
+        galleryItems[currentPhoto].src;
+
+    lightboxImage.alt =
+        galleryItems[currentPhoto].alt || "Gallery photo";
 
 }
 
+
+/*
+ * Open lightbox when a photo is clicked.
+ */
 
 galleryItems.forEach(function (photo, index) {
 
@@ -284,9 +389,13 @@ galleryItems.forEach(function (photo, index) {
 
         showPhoto();
 
+
         if (lightbox) {
+
             lightbox.style.display = "flex";
+
         }
+
 
         document.body.style.overflow = "hidden";
 
@@ -295,15 +404,25 @@ galleryItems.forEach(function (photo, index) {
 });
 
 
+/*
+ * Next photo.
+ */
+
 if (nextPhoto) {
 
-    nextPhoto.addEventListener("click", function () {
+    nextPhoto.addEventListener("click", function (event) {
+
+        event.stopPropagation();
 
         currentPhoto++;
 
+
         if (currentPhoto >= galleryItems.length) {
+
             currentPhoto = 0;
+
         }
+
 
         showPhoto();
 
@@ -311,16 +430,27 @@ if (nextPhoto) {
 
 }
 
+
+/*
+ * Previous photo.
+ */
 
 if (prevPhoto) {
 
-    prevPhoto.addEventListener("click", function () {
+    prevPhoto.addEventListener("click", function (event) {
+
+        event.stopPropagation();
 
         currentPhoto--;
 
+
         if (currentPhoto < 0) {
-            currentPhoto = galleryItems.length - 1;
+
+            currentPhoto =
+                galleryItems.length - 1;
+
         }
+
 
         showPhoto();
 
@@ -328,13 +458,19 @@ if (prevPhoto) {
 
 }
 
+
+/*
+ * Close lightbox button.
+ */
 
 if (closeLightbox) {
 
     closeLightbox.addEventListener("click", function () {
 
         if (lightbox) {
+
             lightbox.style.display = "none";
+
         }
 
         document.body.style.overflow = "auto";
@@ -343,6 +479,11 @@ if (closeLightbox) {
 
 }
 
+
+/*
+ * Close lightbox when clicking
+ * outside the image.
+ */
 
 if (lightbox) {
 
@@ -361,50 +502,119 @@ if (lightbox) {
 }
 
 
+/*
+ * Keyboard controls for lightbox.
+ */
+
+document.addEventListener("keydown", function (event) {
+
+    if (!lightbox) {
+        return;
+    }
+
+
+    if (lightbox.style.display !== "flex") {
+        return;
+    }
+
+
+    if (event.key === "Escape") {
+
+        lightbox.style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+
+    if (event.key === "ArrowRight") {
+
+        currentPhoto++;
+
+        if (currentPhoto >= galleryItems.length) {
+
+            currentPhoto = 0;
+
+        }
+
+        showPhoto();
+
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+        currentPhoto--;
+
+        if (currentPhoto < 0) {
+
+            currentPhoto =
+                galleryItems.length - 1;
+
+        }
+
+        showPhoto();
+
+    }
+
+});
+
+
 /* =====================================================
    BIRTH CARDS
    ===================================================== */
 
-const birthCards = document.querySelectorAll(".birth-card");
+const birthCards =
+    document.querySelectorAll(".birth-card");
 
 
 if (birthCards.length > 0) {
 
-    const birthGrid = document.querySelector(".birth-grid");
+    const birthGrid =
+        document.querySelector(".birth-grid");
+
 
     if (birthGrid) {
 
-        const birthObserver = new IntersectionObserver(
+        const birthObserver =
+            new IntersectionObserver(
 
-            function (entries) {
+                function (entries) {
 
-                entries.forEach(function (entry) {
+                    entries.forEach(function (entry) {
 
-                    if (entry.isIntersecting) {
+                        if (entry.isIntersecting) {
 
-                        birthCards.forEach(function (card, index) {
+                            birthCards.forEach(
+                                function (card, index) {
 
-                            setTimeout(function () {
+                                    setTimeout(
+                                        function () {
 
-                                card.classList.add("show");
+                                            card.classList.add("show");
 
-                            }, index * 180);
+                                        },
+                                        index * 180
+                                    );
 
-                        });
+                                }
+                            );
 
-                        birthObserver.unobserve(entry.target);
 
-                    }
+                            birthObserver.unobserve(entry.target);
 
-                });
+                        }
 
-            },
+                    });
 
-            {
-                threshold: 0.25
-            }
+                },
 
-        );
+                {
+                    threshold: 0.25
+                }
+
+            );
+
 
         birthObserver.observe(birthGrid);
 
@@ -417,23 +627,50 @@ if (birthCards.length > 0) {
    COUNTDOWN
    ===================================================== */
 
-const targetDate = new Date(
-    "2026-10-31T10:00:00+08:00"
-).getTime();
+/*
+ * Baptism date:
+ *
+ * October 31, 2026
+ * 10:00 AM
+ * UTC+8
+ *
+ * Using an explicit timezone prevents the countdown
+ * from changing depending on the visitor's location.
+ */
+
+const targetDate =
+    new Date(
+        "2026-10-31T10:00:00+08:00"
+    ).getTime();
 
 
 function updateCountdown() {
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const distance = targetDate - now;
+
+    const distance =
+        targetDate - now;
 
 
-    const daysElement = document.getElementById("days");
-    const hoursElement = document.getElementById("hours");
-    const minutesElement = document.getElementById("minutes");
-    const secondsElement = document.getElementById("seconds");
+    const daysElement =
+        document.getElementById("days");
 
+    const hoursElement =
+        document.getElementById("hours");
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+
+    /*
+     * Stop if countdown elements
+     * don't exist.
+     */
 
     if (
         !daysElement ||
@@ -441,89 +678,141 @@ function updateCountdown() {
         !minutesElement ||
         !secondsElement
     ) {
+
         return;
+
     }
 
+
+    /*
+     * Event has arrived.
+     */
 
     if (distance <= 0) {
 
-        daysElement.innerHTML = "00";
-        hoursElement.innerHTML = "00";
-        minutesElement.innerHTML = "00";
-        secondsElement.innerHTML = "00";
+        daysElement.textContent = "00";
+
+        hoursElement.textContent = "00";
+
+        minutesElement.textContent = "00";
+
+        secondsElement.textContent = "00";
 
         return;
+
     }
 
 
-    const days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
+    /*
+     * Calculate remaining time.
+     */
 
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
-
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-    daysElement.innerHTML = String(days).padStart(2, "0");
+    const hours =
+        Math.floor(
+            (distance %
+                (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
+        );
 
-    hoursElement.innerHTML = String(hours).padStart(2, "0");
 
-    minutesElement.innerHTML = String(minutes).padStart(2, "0");
+    const minutes =
+        Math.floor(
+            (distance %
+                (1000 * 60 * 60))
+            /
+            (1000 * 60)
+        );
 
-    secondsElement.innerHTML = String(seconds).padStart(2, "0");
+
+    const seconds =
+        Math.floor(
+            (distance %
+                (1000 * 60))
+            /
+            1000
+        );
+
+
+    /*
+     * Update countdown display.
+     */
+
+    daysElement.textContent =
+        String(days).padStart(2, "0");
+
+    hoursElement.textContent =
+        String(hours).padStart(2, "0");
+
+    minutesElement.textContent =
+        String(minutes).padStart(2, "0");
+
+    secondsElement.textContent =
+        String(seconds).padStart(2, "0");
 
 }
 
 
+/*
+ * Run immediately.
+ */
+
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+
+/*
+ * Update every second.
+ */
+
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
 /* =====================================================
    TIMELINE
    ===================================================== */
 
-const timelineItems = document.querySelectorAll(".timeline-item");
+const timelineItems =
+    document.querySelectorAll(".timeline-item");
 
 
 if (timelineItems.length > 0) {
 
-    const timelineObserver = new IntersectionObserver(
+    const timelineObserver =
+        new IntersectionObserver(
 
-        function (entries) {
+            function (entries) {
 
-            entries.forEach(function (entry) {
+                entries.forEach(function (entry) {
 
-                if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
 
-                    entry.target.classList.add("show");
+                        entry.target.classList.add("show");
 
-                    timelineObserver.unobserve(entry.target);
+                        timelineObserver.unobserve(
+                            entry.target
+                        );
 
-                }
+                    }
 
-            });
+                });
 
-        },
+            },
 
-        {
-            threshold: 0.25
-        }
+            {
+                threshold: 0.25
+            }
 
-    );
+        );
 
 
     timelineItems.forEach(function (item) {
@@ -539,59 +828,58 @@ if (timelineItems.length > 0) {
    RSVP
    ===================================================== */
 
-const rsvpForm = document.getElementById("rsvpForm");
+const rsvpForm =
+    document.getElementById("rsvpForm");
 
-const successPopup = document.getElementById("successPopup");
+const successPopup =
+    document.getElementById("successPopup");
 
-const closePopupButton = document.getElementById("closePopupButton");
+const closePopupButton =
+    document.getElementById("closePopupButton");
 
+
+/*
+ * RSVP submission.
+ */
 
 if (rsvpForm) {
 
-    rsvpForm.addEventListener("submit", function (event) {
+    rsvpForm.addEventListener(
+        "submit",
+        function (event) {
 
-        /*
-         * IMPORTANT:
-         * Stop the browser from refreshing/submitting the form.
-         */
+            /*
+             * Prevent browser refresh.
+             */
 
-        event.preventDefault();
-
-        console.log("RSVP form submitted");
+            event.preventDefault();
 
 
-        /*
-         * Show success popup
-         */
+            /*
+             * Show success popup.
+             */
 
-        if (successPopup) {
+            if (successPopup) {
 
-            successPopup.classList.add("show");
+                successPopup.classList.add("show");
 
-            console.log("RSVP popup opened");
+            }
 
-        } else {
 
-            console.error(
-                "RSVP ERROR: #successPopup was not found in the HTML."
-            );
+            /*
+             * Clear form fields.
+             */
+
+            rsvpForm.reset();
 
         }
-
-
-        /*
-         * Clear form
-         */
-
-        rsvpForm.reset();
-
-    });
+    );
 
 }
 
 
 /* =====================================================
-   CLOSE RSVP POPUP
+   RSVP POPUP
    ===================================================== */
 
 function closePopup() {
@@ -606,68 +894,155 @@ function closePopup() {
 
 
 /*
- * Make closePopup available to HTML onclick=""
+ * Make function available globally
+ * in case the HTML needs it.
  */
 
-window.closePopup = closePopup;
+window.closePopup =
+    closePopup;
 
+
+/*
+ * Close button.
+ */
 
 if (closePopupButton) {
 
-    closePopupButton.addEventListener("click", function () {
+    closePopupButton.addEventListener(
+        "click",
+        function () {
 
-        closePopup();
+            closePopup();
 
-    });
+        }
+    );
 
 }
+
+
+/*
+ * Close popup when clicking
+ * outside the popup content.
+ */
+
+if (successPopup) {
+
+    successPopup.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === successPopup
+            ) {
+
+                closePopup();
+
+            }
+
+        }
+    );
+
+}
+
+
+/*
+ * Close popup with Escape.
+ */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            if (
+                successPopup &&
+                successPopup.classList.contains("show")
+            ) {
+
+                closePopup();
+
+            }
+
+        }
+
+    }
+);
 
 
 /* =====================================================
    MUSIC PLAYER
    ===================================================== */
 
-const bgMusic = document.getElementById("bgMusic");
+const bgMusic =
+    document.getElementById("bgMusic");
 
-const musicButton = document.getElementById("musicBtn");
+const musicButton =
+    document.getElementById("musicBtn");
 
 let musicPlaying = false;
 
 
 if (musicButton && bgMusic) {
 
-    musicButton.addEventListener("click", function () {
+    musicButton.addEventListener(
+        "click",
+        function () {
 
-        if (musicPlaying) {
+            /*
+             * Pause music.
+             */
 
-            bgMusic.pause();
+            if (musicPlaying) {
 
-            musicButton.innerHTML = "♪";
+                bgMusic.pause();
 
-            musicPlaying = false;
+                musicButton.innerHTML = "♪";
 
-        } else {
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play background music"
+                );
 
-            bgMusic.play()
-                .then(function () {
+                musicPlaying = false;
 
-                    musicButton.innerHTML = "❚❚";
+            }
 
-                    musicPlaying = true;
 
-                })
-                .catch(function (error) {
+            /*
+             * Play music.
+             */
 
-                    console.log(
-                        "Music could not be played:",
-                        error
-                    );
+            else {
 
-                });
+                bgMusic.play()
+
+                    .then(function () {
+
+                        musicButton.innerHTML = "❚❚";
+
+                        musicButton.setAttribute(
+                            "aria-label",
+                            "Pause background music"
+                        );
+
+                        musicPlaying = true;
+
+                    })
+
+                    .catch(function (error) {
+
+                        console.log(
+                            "Music could not be played:",
+                            error
+                        );
+
+                    });
+
+            }
 
         }
-
-    });
+    );
 
 }
 
@@ -676,113 +1051,135 @@ if (musicButton && bgMusic) {
    SCROLL PROGRESS BAR
    ===================================================== */
 
-window.addEventListener("scroll", function () {
+window.addEventListener(
+    "scroll",
+    function () {
 
-    const progressBar =
-        document.getElementById("progressBar");
-
-    if (!progressBar) return;
-
-
-    const winScroll =
-        document.documentElement.scrollTop;
-
-    const height =
-        document.documentElement.scrollHeight
-        - document.documentElement.clientHeight;
+        const progressBar =
+            document.getElementById(
+                "progressBar"
+            );
 
 
-    if (height > 0) {
+        if (!progressBar) {
+            return;
+        }
 
-        progressBar.style.width =
-            (winScroll / height) * 100 + "%";
+
+        const winScroll =
+            document.documentElement.scrollTop;
+
+
+        const height =
+            document.documentElement.scrollHeight
+            -
+            document.documentElement.clientHeight;
+
+
+        if (height > 0) {
+
+            const progress =
+                (winScroll / height) * 100;
+
+
+            progressBar.style.width =
+                progress + "%";
+
+        }
 
     }
-
-});
+);
 
 
 /* =====================================================
    BACK TO TOP BUTTON
    ===================================================== */
 
-const topButton = document.getElementById("topBtn");
+const topButton =
+    document.getElementById("topBtn");
 
 
 if (topButton) {
 
-    window.addEventListener("scroll", function () {
+    /*
+     * Hide button initially.
+     */
 
-        if (window.scrollY > 500) {
+    topButton.style.display = "none";
 
-            topButton.style.display = "block";
 
-        } else {
+    /*
+     * Show after scrolling.
+     */
 
-            topButton.style.display = "none";
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            if (window.scrollY > 500) {
+
+                topButton.style.display =
+                    "block";
+
+            }
+
+            else {
+
+                topButton.style.display =
+                    "none";
+
+            }
 
         }
+    );
 
-    });
 
+    /*
+     * Scroll to top.
+     */
 
-    topButton.addEventListener("click", function () {
+    topButton.addEventListener(
+        "click",
+        function () {
 
-        window.scrollTo({
+            window.scrollTo({
 
-            top: 0,
+                top: 0,
 
-            behavior: "smooth"
+                behavior: "smooth"
 
-        });
+            });
 
-    });
+        }
+    );
 
 }
-/* =========================================
-   RSVP POPUP TEST
-========================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
 
-    const rsvpForm = document.getElementById("rsvpForm");
-    const successPopup = document.getElementById("successPopup");
-    const closePopupButton = document.getElementById("closePopupButton");
+/* =====================================================
+   INITIALIZE PAGE
+   ===================================================== */
 
-    console.log("RSVP form:", rsvpForm);
-    console.log("Success popup:", successPopup);
-    console.log("Close button:", closePopupButton);
+/*
+ * Make sure the page starts with scrolling disabled
+ * while the opening loader/envelope experience is active.
+ */
 
-    if (!rsvpForm) {
-        console.error("❌ rsvpForm was NOT found.");
-        return;
-    }
+if (loader || envelopeScreen) {
 
-    if (!successPopup) {
-        console.error("❌ successPopup was NOT found.");
-        return;
-    }
+    document.body.style.overflow = "hidden";
 
-    rsvpForm.addEventListener("submit", function (event) {
+}
 
-        event.preventDefault();
 
-        console.log("✅ RSVP SUBMITTED");
+/*
+ * Set initial hero state.
+ *
+ * The hero will become visible after the envelope opens.
+ */
 
-        successPopup.classList.add("show");
+if (hero) {
 
-        rsvpForm.reset();
+    hero.style.display = "block";
 
-    });
-
-    if (closePopupButton) {
-
-        closePopupButton.addEventListener("click", function () {
-
-            successPopup.classList.remove("show");
-
-        });
-
-    }
-
-});
+}
