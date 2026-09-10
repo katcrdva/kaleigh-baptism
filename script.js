@@ -418,7 +418,7 @@ if (birthCards.length > 0) {
    ===================================================== */
 
 const targetDate = new Date(
-    "September 26, 2026 10:00:00"
+    "2026-10-31T10:00:00+08:00"
 ).getTime();
 
 
