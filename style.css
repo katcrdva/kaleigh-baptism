@@ -1,4680 +1,2377 @@
+/* =====================================================
+   KALEIGH BAPTISM INVITATION - MAIN STYLESHEET
+   Original luxury style (fonts, colors, opening flow, hero,
+   invitation card, gallery) + updated section layouts.
+   ===================================================== */
+
+/* ========== ORIGINAL: base, loader, envelope, hero ========== */
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 }
-
 body{
-
 background:#F9F7F4;
-
 font-family:Montserrat,sans-serif;
-
 overflow:hidden;
-
 }
-
 #loader{
-
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 text-align:center;
-
 background:linear-gradient(to bottom,#FDFCFB,#F7F2EB);
-
 padding:40px;
-
 }
-
 .loader-content{
-
 max-width:700px;
-
 animation:fadeIn 2s ease;
-
 }
-
 .small-text{
-
 letter-spacing:4px;
-
 text-transform:uppercase;
-
 color:#A68A64;
-
 margin-bottom:30px;
-
 font-size:14px;
-
 }
-
 #typing{
-
 font-family:'Pinyon Script',cursive;
-
 font-size:72px;
-
 color:#8A6A43;
-
 min-height:90px;
-
 margin-bottom:20px;
-
 }
-
 .subtitle{
-
 font-size:22px;
-
 font-family:'Cormorant Garamond',serif;
-
 margin-bottom:20px;
-
 }
-
 .loader-content h2{
-
 font-family:'Cormorant Garamond',serif;
-
 font-size:42px;
-
 margin-bottom:25px;
-
 color:#6F5539;
-
 }
-
 .loader-content p:last-of-type{
-
 font-size:22px;
-
 font-family:'Cormorant Garamond',serif;
-
 margin-bottom:40px;
-
 }
-
 button{
-
 padding:18px 50px;
-
 border:none;
-
 background:#B9975B;
-
 color:white;
-
 font-size:16px;
-
 border-radius:50px;
-
 cursor:pointer;
-
 transition:.4s;
-
 }
-
 button:hover{
-
 background:#8A6A43;
-
 transform:translateY(-3px);
-
 }
-
 @keyframes fadeIn{
-
 from{
-
 opacity:0;
-
 transform:translateY(40px);
-
 }
-
 to{
-
 opacity:1;
-
 transform:translateY(0);
-
 }
-
 }/* ---------------------- */
 /* Envelope */
 /* ---------------------- */
-
 #envelopeScreen{
-
 position:fixed;
-
 top:0;
-
 left:0;
-
 width:100%;
-
 height:100vh;
-
 background:#f8f5f1;
-
 display:none;
-
 justify-content:center;
-
 align-items:center;
-
 overflow:hidden;
-
 z-index:900;
-
 }
-
 .envelope{
-
 width:340px;
-
 height:220px;
-
 background:#efe5d8;
-
 position:relative;
-
 cursor:pointer;
-
 box-shadow:0 20px 40px rgba(0,0,0,.15);
-
 transition:1s;
-
 }
-
 .flap{
-
 position:absolute;
-
 top:0;
-
 left:0;
-
 width:100%;
-
 height:120px;
-
 background:#d9c7af;
-
 clip-path:polygon(0 0,100% 0,50% 100%);
-
 transform-origin:top;
-
 transition:1s;
-
 z-index:5;
-
 }
-
 .letter{
-
 position:absolute;
-
 background:white;
-
 width:90%;
-
 height:180px;
-
 left:5%;
-
 top:20px;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 transition:1s;
-
 z-index:2;
-
 }
-
 .letter h2{
-
 font-family:'Cormorant Garamond',serif;
-
 font-size:42px;
-
 color:#8d6d44;
-
 margin-bottom:15px;
-
 }
-
 .letter p{
-
 letter-spacing:4px;
-
 text-transform:uppercase;
-
 font-size:12px;
-
 color:#999;
-
 }
-
 .open .flap{
-
 transform:rotateX(180deg);
-
 }
-
 .open .letter{
-
 transform:translateY(-130px);
-
 }
-
-
 /* ---------------------- */
 /* Hero */
 /* ---------------------- */
-
 #hero{
-
 display:none;
-
 height:100vh;
-
 background-image:url(images/hero.jpg);
-
 background-size:cover;
-
 background-position:center;
-
 position:relative;
-
 animation:zoomHero 20s infinite alternate;
-
 }
-
 .hero-overlay{
-
 background:rgba(255,255,255,.35);
-
 backdrop-filter:blur(3px);
-
 height:100%;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 text-align:center;
-
 }
-
 .welcome{
-
 font-size:20px;
-
 letter-spacing:4px;
-
 text-transform:uppercase;
-
 color:#8d6d44;
-
 margin-bottom:20px;
-
 }
-
 .hero-overlay h1{
-
 font-size:90px;
-
 font-family:'Pinyon Script',cursive;
-
 color:#6b5335;
-
 }
-
 .hero-overlay h3{
-
 font-family:'Cormorant Garamond',serif;
-
 font-size:45px;
-
 font-weight:400;
-
 color:#86633d;
-
 }
-
 @keyframes zoomHero{
-
 from{
-
 background-size:100%;
-
 }
-
 to{
-
 background-size:110%;
-
 }
 }
-
-
 /* ---------------------- */
 /* Sparkles */
 /* ---------------------- */
-
 .sparkles{
-
 position:absolute;
-
 width:100%;
-
 height:100%;
-
 background-image:
 radial-gradient(circle,#d8b46c 2px,transparent 2px);
-
 background-size:80px 80px;
-
 animation:sparkleMove 12s linear infinite;
-
 opacity:.4;
-
 }
-
 @keyframes sparkleMove{
-
 from{
-
 transform:translateY(0);
-
 }
-
 to{
-
 transform:translateY(-80px);
-
 }
-
 }.hero-content{
-
 animation:heroFade 2.5s ease;
-
 padding:30px;
-
 }
-
 .hero-overlay{
-
 background:rgba(255,255,255,.30);
-
 backdrop-filter:blur(6px);
-
 }
-
 .gold-line{
-
 width:180px;
-
 height:1px;
-
 background:#caa86a;
-
 margin:25px auto;
-
 opacity:.8;
-
 }
-
 .gold-line.small{
-
 width:120px;
-
 margin-top:30px;
-
 margin-bottom:30px;
-
 }
-
 .hero-content h1{
-
 font-size:92px;
-
 font-family:'Pinyon Script',cursive;
-
 font-weight:400;
-
 color:#7d5c36;
-
 margin-bottom:0;
-
 }
-
 .hero-content h2{
-
 font-size:40px;
-
 font-family:'Cormorant Garamond',serif;
-
 font-weight:400;
-
 letter-spacing:3px;
-
 margin-bottom:30px;
-
 color:#6b5335;
-
 }
-
 .date{
-
 font-family:'Montserrat';
-
 letter-spacing:5px;
-
 text-transform:uppercase;
-
 font-size:14px;
-
 color:#8b6d45;
-
 margin-top:10px;
-
 }
-
 .verse{
-
 max-width:650px;
-
 margin:auto;
-
 font-size:28px;
-
 font-family:'Cormorant Garamond',serif;
-
 font-style:italic;
-
 color:#6e5437;
-
 line-height:1.8;
-
 }
-
 .verse-ref{
-
 display:block;
-
 margin-top:20px;
-
 letter-spacing:3px;
-
 font-size:13px;
-
 text-transform:uppercase;
-
 color:#9f8358;
-
 }
-
 .scroll-indicator{
-
 margin-top:60px;
-
 font-size:40px;
-
 color:#b89455;
-
 animation:bounce 2s infinite;
-
 }
-
 @keyframes bounce{
-
 0%,100%{
-
 transform:translateY(0);
-
 }
-
 50%{
-
 transform:translateY(15px);
-
 }
-
 }
-
 @keyframes heroFade{
-
 from{
-
 opacity:0;
-
 transform:translateY(40px);
-
 }
-
 to{
-
 opacity:1;
-
 transform:translateY(0);
-
+}
 }
 
-}.section{
-
-padding:120px 25px;
-
-background:white;
-
-}
-
-.container{
-
-max-width:900px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.section h2{
-
-font-size:55px;
-
-font-family:'Cormorant Garamond';
-
-font-weight:400;
-
-color:#7b5f39;
-
-margin-bottom:20px;
-
-}
-
-.section p{
-
-font-size:23px;
-
-font-family:'Cormorant Garamond';
-
-line-height:2;
-
-color:#666;
-
-}
-
-.fade{
-
-opacity:0;
-
-transform:translateY(50px);
-
-transition:1.2s;
-
-}
-
-.fade.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}.family-section{
-
-padding:140px 8%;
-
-background:#fcfaf7;
-
-}
-
-.family-container{
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:80px;
-
-max-width:1300px;
-
-margin:auto;
-
-flex-wrap:wrap;
-
-}
-
-.family-image{
-
-flex:1;
-
-min-width:350px;
-
-}
-
-.family-image img{
-
-width:100%;
-
-border-radius:18px;
-
-box-shadow:0 30px 60px rgba(0,0,0,.15);
-
-transition:.6s;
-
-}
-
-.family-image img:hover{
-
-transform:scale(1.02);
-
-}
-
-.family-text{
-
-flex:1;
-
-min-width:320px;
-
-}
-
+/* ========== ORIGINAL: small title (gallery header) ========== */
 .small-title{
-
-letter-spacing:5px;
-
-font-size:13px;
-
-text-transform:uppercase;
-
-color:#b79558;
-
-margin-bottom:15px;
-
+    letter-spacing:5px;
+    font-size:13px;
+    text-transform:uppercase;
+    color:#b79558;
+    margin-bottom:15px;
 }
 
-.family-text h2{
-
-font-size:62px;
-
-font-family:'Cormorant Garamond';
-
-font-weight:400;
-
-color:#7d5f39;
-
-margin-bottom:25px;
-
-}
-
-.family-text p{
-
-font-size:23px;
-
-line-height:2;
-
-font-family:'Cormorant Garamond';
-
-color:#666;
-
-margin-bottom:35px;
-
-}
-
-.family-text h3{
-
-font-family:'Pinyon Script';
-
-font-size:44px;
-
-color:#9a7848;
-
-font-weight:400;
-
-}
-
-.family-text h4{
-
-font-size:30px;
-
-font-family:'Cormorant Garamond';
-
-font-weight:400;
-
-color:#6e5437;
-
-}/* ===========================
-   Story Book
-=========================== */
-
-.name-story{
-
-padding:150px 8%;
-
-background:#f9f6f1;
-
-}
-
-.book{
-
-display:flex;
-
-gap:80px;
-
-max-width:1300px;
-
-margin:auto;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-}
-
-.book.reverse{
-
-flex-direction:row-reverse;
-
-}
-
-.book-left{
-
-flex:1;
-
-min-width:320px;
-
-}
-
-.book-right{
-
-flex:1;
-
-min-width:340px;
-
-background:white;
-
-padding:60px;
-
-border-radius:12px;
-
-box-shadow:0 30px 60px rgba(0,0,0,.08);
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.book-right::before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-width:8px;
-
-height:100%;
-
-background:#d9b77d;
-
-}
-
-.chapter{
-
-letter-spacing:5px;
-
-font-size:13px;
-
-color:#b89559;
-
-text-transform:uppercase;
-
-margin-bottom:15px;
-
-}
-
-.book-left h2{
-
-font-size:64px;
-
-font-family:'Cormorant Garamond';
-
-font-weight:400;
-
-color:#7a5b36;
-
-margin-bottom:20px;
-
-}
-
-.intro{
-
-font-size:24px;
-
-line-height:1.8;
-
-font-family:'Cormorant Garamond';
-
-color:#666;
-
-}
-
-.book-right p{
-
-font-size:22px;
-
-line-height:2.1;
-
-font-family:'Cormorant Garamond';
-
-color:#666;
-
-}
-
-.book-right strong{
-
-color:#8b6d44;
-
-font-weight:600;
-
-}
-
-.second{
-
-padding-top:30px;
-
-padding-bottom:170px;
-
-}/* =======================================
-   LUXURY GALLERY
-======================================= */
-
+/* ========== ORIGINAL: gallery + lightbox ========== */
 .gallery-section{
-
     padding:150px 8%;
     background:#ffffff;
-
 }
-
 .gallery-header{
-
     text-align:center;
     max-width:850px;
     margin:auto;
     margin-bottom:70px;
-
 }
-
 .gallery-header h2{
-
 font-family:'Cormorant Garamond',serif;
-
 font-size:62px;
-
 font-weight:400;
-
 color:#7b5f39;
-
 margin-bottom:20px;
-
 animation:floatTitle 6s ease-in-out infinite;
-
 }
-
 .gallery-header p{
-
     font-family:'Cormorant Garamond',serif;
     font-size:22px;
     line-height:2;
     color:#666;
-
 }
-
 .gallery-grid{
-
     column-count:3;
     column-gap:22px;
-
 }
-
 .gallery-item{
-
     width:100%;
     margin-bottom:22px;
-
     border-radius:18px;
-
     cursor:pointer;
-
     display:block;
-
     break-inside:avoid;
-
     box-shadow:0 15px 35px rgba(0,0,0,.08);
-
     opacity:0;
-
     transform:translateY(60px) scale(.96);
-
     transition:
         transform .6s ease,
         box-shadow .4s ease,
         opacity .8s ease;
-
 }
-
 .gallery-item.show{
-
     opacity:1;
-
     transform:translateY(0) scale(1);
-
 }
-
 .gallery-item:hover{
-
     transform:translateY(-8px) scale(1.02);
-
     box-shadow:0 30px 60px rgba(0,0,0,.15);
-
 }
-
 .gallery-item:hover{
-
     transform:translateY(-8px) scale(1.02);
-
 }
-
 @media(max-width:992px){
-
 .gallery-grid{
-
 column-count:2;
-
 }
-
 }
-
 @media(max-width:600px){
-
 .gallery-grid{
-
 column-count:1;
-
 }
-
 }/* =======================================
    LIGHTBOX
 ======================================= */
-
 #lightbox{
-
 display:none;
-
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 background:rgba(15,15,15,.95);
-
 justify-content:center;
-
 align-items:center;
-
 z-index:99999;
-
 animation:fadeIn .4s;
-
 }
-
 #lightboxImage{
-
 max-width:90%;
 max-height:88%;
-
 border-radius:18px;
-
 box-shadow:0 30px 70px rgba(0,0,0,.5);
-
 }
-
 #closeLightbox{
-
 position:absolute;
-
 top:30px;
 right:40px;
-
 font-size:55px;
-
 cursor:pointer;
-
 color:white;
-
 transition:.3s;
-
 }
-
 #closeLightbox:hover{
-
 transform:rotate(90deg);
-
 }
-
 #prevPhoto,
 #nextPhoto{
-
 position:absolute;
-
 top:50%;
-
 transform:translateY(-50%);
-
 background:rgba(255,255,255,.12);
-
 border:none;
-
 width:70px;
 height:70px;
-
 border-radius:50%;
-
 font-size:38px;
-
 color:white;
-
 cursor:pointer;
-
 transition:.3s;
-
 }
-
 #prevPhoto{
-
 left:30px;
-
 }
-
 #nextPhoto{
-
 right:30px;
-
 }
-
 #prevPhoto:hover,
 #nextPhoto:hover{
-
 background:#c9a86a;
-
 }
 .gallery-item::selection{
-
 background:transparent;
-
 }
-
 .gallery-item{
-
 overflow:hidden;
-
 }
-
 .gallery-item:hover{
-
 filter:brightness(1.02);
-
 }
 .gallery-item{
-
 position:relative;
-
 }
-
 .gallery-item::after{
-
 content:"";
-
 position:absolute;
-
 left:0;
-
 top:0;
-
 width:100%;
-
 height:100%;
-
 border-radius:18px;
-
 background:linear-gradient(
 to top,
 rgba(0,0,0,.15),
 transparent 45%
 );
-
 opacity:0;
-
 transition:.4s;
-
 pointer-events:none;
-
 }
-
 .gallery-item:hover::after{
-
 opacity:1;
-
 }
 @keyframes floatTitle{
-
 0%,100%{
-
 transform:translateY(0);
-
 }
-
 50%{
-
 transform:translateY(-8px);
-
 }
-
 }
 .gallery-header{
-
 position:relative;
-
 overflow:hidden;
-
 }
-
 .gallery-header::before{
-
 content:"";
-
 position:absolute;
-
 top:-80px;
-
 left:-80px;
-
 width:220px;
-
 height:220px;
-
 background:radial-gradient(circle,
 rgba(201,168,106,.18),
 transparent 70%);
-
 animation:sparkleGlow 8s ease-in-out infinite;
-
 pointer-events:none;
-
 }
-
 @keyframes sparkleGlow{
-
 0%,100%{
 transform:translate(0,0) scale(1);
 }
-
 50%{
 transform:translate(40px,30px) scale(1.25);
 }
-
 }
+
+/* ========== ORIGINAL: formal invitation card ========== */
 /* =======================================
 INVITATION
 ======================================= */
-
 .invitation-section{
-
 padding:170px 8%;
-
 background:#f9f7f3;
-
 }
-
 .invitation-card{
-
 max-width:900px;
-
 margin:auto;
-
 background:white;
-
 padding:90px;
-
 border-radius:25px;
-
 box-shadow:0 30px 80px rgba(0,0,0,.08);
-
 text-align:center;
-
 position:relative;
-
 overflow:hidden;
-
 }
-
 .invitation-card::before{
-
 content:"";
-
 position:absolute;
-
 top:-120px;
-
 right:-120px;
-
 width:260px;
-
 height:260px;
-
 background:radial-gradient(circle,
 rgba(201,168,106,.12),
 transparent 70%);
-
 }
-
 .cross-icon{
-
 font-size:40px;
-
 color:#c7a96b;
-
 margin-bottom:30px;
-
 }
-
 .invite-small{
-
 letter-spacing:4px;
-
 text-transform:uppercase;
-
 font-size:13px;
-
 color:#b69458;
-
 margin-bottom:25px;
-
 }
-
 .parents{
-
 font-family:'Cormorant Garamond';
-
 font-size:46px;
-
 font-weight:400;
-
 color:#7a5b36;
-
 line-height:1.6;
-
 }
-
 .parents span{
-
 display:block;
-
 font-family:'Pinyon Script';
-
 font-size:48px;
-
 margin:12px 0;
-
 color:#b89559;
-
 }
-
 .invite-text{
-
 margin:40px 0;
-
 font-family:'Cormorant Garamond';
-
 font-size:24px;
-
 color:#666;
-
 line-height:1.8;
-
 }
-
 .invitation-card h1{
-
 font-family:'Pinyon Script';
-
 font-size:88px;
-
 font-weight:400;
-
 color:#7a5b36;
-
 }
-
 .invitation-card h3{
-
 font-family:'Cormorant Garamond';
-
 font-size:38px;
-
 font-weight:400;
-
 letter-spacing:4px;
-
 margin-bottom:35px;
-
 color:#8b6d44;
-
 }
-
 .invitation-card h4{
-
 margin-top:35px;
-
 font-size:18px;
-
 letter-spacing:6px;
-
 text-transform:uppercase;
-
 color:#b89559;
-
 }
-
 .date-big{
-
 font-family:'Cormorant Garamond';
-
 font-size:62px;
-
 font-weight:400;
-
 margin:20px 0;
-
 color:#6f5335;
-
 }
-
 .invitation-card h5{
-
 font-size:26px;
-
 letter-spacing:3px;
-
 margin-bottom:40px;
-
 font-weight:400;
-
 color:#777;
-
 }
-
 .church-name{
-
 font-family:'Cormorant Garamond';
-
 font-size:28px;
-
 line-height:1.8;
-
 color:#666;
-
 max-width:600px;
-
 margin:auto;
-
 }
 .invitation-card::after{
-
 content:"";
-
 position:absolute;
-
 left:35px;
-
 bottom:35px;
-
 width:80px;
-
 height:80px;
-
 border-left:1px solid #d7bc8d;
-
 border-bottom:1px solid #d7bc8d;
-
 opacity:.7;
-
 }
-
 .corner-top{
-
 position:absolute;
-
 top:35px;
-
 right:35px;
-
 width:80px;
-
 height:80px;
-
 border-top:1px solid #d7bc8d;
-
 border-right:1px solid #d7bc8d;
-
-}
-/* =======================================
-BIRTH STORY
-======================================= */
-
-.birth-section{
-
-padding:170px 8%;
-
-background:white;
-
-}
-
-.birth-header{
-
-text-align:center;
-
-max-width:900px;
-
-margin:auto;
-
-margin-bottom:80px;
-
-}
-
-.birth-header h2{
-
-font-family:'Cormorant Garamond';
-
-font-size:64px;
-
-font-weight:400;
-
-color:#7a5b36;
-
-margin-bottom:25px;
-
-}
-
-.birth-header p{
-
-font-size:22px;
-
-font-family:'Cormorant Garamond';
-
-line-height:2;
-
-color:#666;
-
-}
-
-.birth-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-.birth-card{
-
-background:#fff;
-
-padding:45px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-transition:.4s;
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-.birth-card.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-.birth-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 35px 70px rgba(0,0,0,.12);
-
-}
-
-.birth-card span{
-
-font-size:42px;
-
-display:block;
-
-margin-bottom:20px;
-
-}
-
-.birth-card h3{
-
-font-family:'Cormorant Garamond';
-
-font-size:30px;
-
-font-weight:500;
-
-color:#7b5f39;
-
-margin-bottom:15px;
-
-}
-
-.birth-card p{
-
-font-family:'Cormorant Garamond';
-
-font-size:22px;
-
-line-height:1.8;
-
-color:#666;
-
-}
-/* =========================
-   Timeline
-========================= */
-
-.timeline-section{
-
-    padding:120px 10%;
-    background:#faf7f2;
-
-}
-
-.timeline{
-
-    position:relative;
-    max-width:900px;
-    margin:auto;
-
-}
-
-.timeline::before{
-
-    content:'';
-    position:absolute;
-
-    left:25px;
-    top:0;
-
-    width:3px;
-    height:100%;
-
-    background:linear-gradient(
-        to bottom,
-        #d4af37,
-        #f2e4b7
-    );
-
-}
-
-.timeline-item{
-
-    position:relative;
-    display:flex;
-
-    margin-bottom:80px;
-    align-items:flex-start;
-
-}
-
-.timeline-dot{
-
-    width:20px;
-    height:20px;
-
-    border-radius:50%;
-
-    background:#caa25d;
-
-    border:5px solid white;
-
-    box-shadow:0 0 20px rgba(202,162,93,.35);
-
-    z-index:5;
-
-    flex-shrink:0;
-
-}
-
-.timeline-content{
-
-    margin-left:40px;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-    transition:.5s;
-
-}
-
-.timeline-content:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.timeline-content h3{
-
-    color:#caa25d;
-    margin-bottom:8px;
-    font-size:18px;
-
-}
-
-.timeline-content h4{
-
-    font-size:28px;
-    color:#8b6b3f;
-    margin-bottom:12px;
-
-}
-
-.timeline-content p{
-
-    color:#666;
-    line-height:1.8;
-
-}
-.timeline-item{
-
-    opacity:0;
-    transform:translateY(60px);
-
-    transition:1s ease;
-
-}
-
-.timeline-item.show{
-
-    opacity:1;
-    transform:translateY(0);
-
-}
-/* ===========================
-   Event Section
-=========================== */
-
-.event-section{
-
-    padding:120px 10%;
-    background:white;
-
-}
-
-.venue-grid{
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-
-    margin-top:60px;
-
-}
-
-.venue-card{
-
-    background:#fff;
-
-    border-radius:25px;
-
-    padding:50px;
-
-    text-align:center;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
-
-    transition:.4s;
-
-}
-
-.venue-card:hover{
-
-    transform:translateY(-10px);
-
-}
-
-.venue-icon{
-
-    width:90px;
-    height:90px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#f8f3ea;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    font-size:42px;
-
-    margin-bottom:25px;
-
-}
-
-.venue-card h3{
-
-    color:#caa25d;
-    margin-bottom:10px;
-
-}
-
-.venue-card h4{
-
-    font-size:30px;
-    color:#8b6b3f;
-
-    margin-bottom:20px;
-
-}
-
-.venue-card p{
-
-    color:#666;
-    line-height:1.8;
-
-    margin-bottom:20px;
-
-}
-
-.venue-btn{
-
-    display:inline-block;
-
-    margin-top:15px;
-
-    padding:14px 30px;
-
-    border-radius:40px;
-
-    background:#caa25d;
-
-    color:white;
-
-    text-decoration:none;
-
-    transition:.3s;
-
-}
-
-.venue-btn:hover{
-
-    background:#b88d46;
-
-}
-
-.schedule-card{
-
-    margin-top:80px;
-
-    background:#faf7f2;
-
-    border-radius:25px;
-
-    padding:50px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-}
-
-.schedule-card h3{
-
-    text-align:center;
-
-    color:#8b6b3f;
-
-    font-size:34px;
-
-    margin-bottom:40px;
-
-}
-
-.schedule-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:18px 0;
-
-    border-bottom:1px solid rgba(0,0,0,.08);
-
-}
-
-.schedule-row:last-child{
-
-    border:none;
-
-}
-
-.schedule-row span{
-
-    color:#caa25d;
-
-    font-weight:600;
-
-    font-size:18px;
-
-}
-
-.schedule-row p{
-
-    margin:0;
-
-    color:#555;
-
-}
-@media(max-width:768px){
-
-    .venue-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .schedule-row{
-
-        flex-direction:column;
-
-        gap:10px;
-
-        text-align:center;
-
-    }
-
-}
-/*=========================
-        RSVP
-==========================*/
-
-.rsvp-section{
-
-    padding:120px 10%;
-    background:#faf7f2;
-
-}
-
-.rsvp-card{
-
-    max-width:700px;
-
-    margin:60px auto 0;
-
-    background:white;
-
-    padding:60px;
-
-    border-radius:30px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
-
-}
-
-.form-group{
-
-    position:relative;
-
-    margin-bottom:35px;
-
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select{
-
-    width:100%;
-
-    padding:18px 20px;
-
-    border:1px solid #ddd;
-
-    border-radius:15px;
-
-    outline:none;
-
-    font-size:16px;
-
-    background:white;
-
-    transition:.3s;
-
-}
-
-.form-group textarea{
-
-    resize:none;
-
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus{
-
-    border-color:#caa25d;
-
-    box-shadow:0 0 15px rgba(202,162,93,.25);
-
-}
-
-.form-group label{
-
-    position:absolute;
-
-    left:18px;
-
-    top:18px;
-
-    background:white;
-
-    padding:0 8px;
-
-    color:#999;
-
-    pointer-events:none;
-
-    transition:.3s;
-
-}
-
-.form-group input:focus + label,
-.form-group input:valid + label,
-.form-group textarea:focus + label,
-.form-group textarea:valid + label{
-
-    top:-10px;
-
-    font-size:13px;
-
-    color:#caa25d;
-
 }
 
-.submit-btn{
-
-    width:100%;
-
-    padding:18px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:#caa25d;
-
-    color:white;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.submit-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 12px 30px rgba(202,162,93,.35);
-
-}
-.success-popup{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.55);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    visibility:hidden;
-
-    opacity:0;
-
-    transition:.4s;
-
-    z-index:9999;
-
-}
-
-.success-popup.show{
-
-    visibility:visible;
-
-    opacity:1;
-
-}
-
-.success-content{
-
-    background:white;
-
-    padding:50px;
-
-    border-radius:30px;
-
-    text-align:center;
-
-    max-width:450px;
-
-    width:90%;
-
-    animation:popup .5s;
-
-}
-
-.success-icon{
-
-    font-size:70px;
-
-    margin-bottom:20px;
-
-}
-
-.success-content button{
-
-    margin-top:30px;
-
-    border:none;
-
-    background:#caa25d;
-
-    color:white;
-
-    padding:14px 35px;
-
-    border-radius:40px;
-
-    cursor:pointer;
-
-}
-
-@keyframes popup{
-
-from{
-
-transform:scale(.7);
-
-opacity:0;
-
-}
-
-to{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-}
-/*=========================
-      COUNTDOWN
-=========================*/
-
-.countdown-section{
-
-    padding:120px 10%;
-    background:#fff;
-
-}
-
-.countdown-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-    margin-top:60px;
-
-}
-
-.count-card{
-
-    background:#faf7f2;
-
-    border-radius:25px;
-
-    padding:45px;
-
-    text-align:center;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-}
-
-.count-card h3{
-
-    font-size:58px;
-
-    color:#caa25d;
-
-    margin-bottom:10px;
-
-}
-
-.count-card p{
-
-    color:#777;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-}
+/* ========== ORIGINAL: progress bar + back to top ========== */
 #progressBar{
-
     position:fixed;
-
     top:0;
-
     left:0;
-
     height:4px;
-
     width:0%;
-
     background:linear-gradient(90deg,#caa25d,#f5d77d);
-
     z-index:99999;
-
 }
 #topBtn{
-
 position:fixed;
-
 bottom:35px;
-
 right:35px;
-
 width:55px;
-
 height:55px;
-
 border:none;
-
 border-radius:50%;
-
 background:#caa25d;
-
 color:white;
-
 font-size:22px;
-
 cursor:pointer;
-
 display:none;
-
 box-shadow:0 15px 35px rgba(0,0,0,.2);
-
 transition:.3s;
-
 }
-
 #topBtn:hover{
-
 transform:translateY(-5px);
-
 }
-.sparkles{
 
+/* ========== ORIGINAL: music button ========== */
+/*====================================
+      MUSIC BUTTON
+=====================================*/
+#musicBtn{
 position:fixed;
+left:35px;
+bottom:35px;
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(12px);
+color:#b89559;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+transition:.3s;
+z-index:9999;
+}
+#musicBtn:hover{
+transform:scale(1.08);
+background:#b89559;
+color:white;
+}
 
-inset:0;
 
-pointer-events:none;
+/* =====================================================
+   SPARKLES (final merged version of the original rules)
+   ===================================================== */
 
-overflow:hidden;
-
-z-index:1;
-
+.sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
 }
 
 .sparkles::before,
 .sparkles::after{
-
-content:"âœ¦";
-
-position:absolute;
-
-font-size:20px;
-
-color:rgba(202,162,93,.35);
-
-animation:floatSparkle 12s linear infinite;
-
+    content:"\2726";
+    position:absolute;
+    font-size:20px;
+    color:rgba(202,162,93,.35);
+    animation:floatSparkle 12s linear infinite;
 }
 
-.sparkles::before{
-
-left:18%;
-
-top:100%;
-
-animation-delay:0s;
-
-}
-
-.sparkles::after{
-
-right:22%;
-
-top:100%;
-
-animation-delay:6s;
-
-}
+.sparkles::before{ left:18%; top:100%; animation-delay:0s; }
+.sparkles::after{ right:22%; top:100%; animation-delay:6s; }
 
 @keyframes floatSparkle{
-
-0%{
-
-transform:translateY(0) rotate(0deg);
-
-opacity:0;
-
-}
-
-10%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh) rotate(360deg);
-
-opacity:0;
-
-}
-
-}
-/*====================================
-      MUSIC BUTTON
-=====================================*/
-
-#musicBtn{
-
-position:fixed;
-
-left:35px;
-
-bottom:35px;
-
-width:60px;
-
-height:60px;
-
-border:none;
-
-border-radius:50%;
-
-background:rgba(255,255,255,.9);
-
-backdrop-filter:blur(12px);
-
-color:#b89559;
-
-font-size:24px;
-
-cursor:pointer;
-
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-
-transition:.3s;
-
-z-index:9999;
-
-}
-
-#musicBtn:hover{
-
-transform:scale(1.08);
-
-background:#b89559;
-
-color:white;
-
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:1; }
+    100%{ transform:translateY(-120vh) rotate(360deg); opacity:0; }
 }
 
 
+/* =====================================================
+   SCROLL FADE-IN (used by every section)
+   ===================================================== */
 
-/* =========================================================
-   FINAL MOBILE RESPONSIVE DESIGN
-   Desktop design remains unchanged
-   ========================================================= */
+.fade{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1.2s;
+}
 
-@media (max-width: 768px) {
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
-    /* -----------------------------------------------------
-       GLOBAL MOBILE FIX
-       ----------------------------------------------------- */
+
+/* =====================================================
+   SHARED SECTION SYSTEM
+   ===================================================== */
+
+.story-section{
+    padding:clamp(80px,10vw,140px) 8%;
+}
+
+.inner{
+    max-width:1120px;
+    margin:0 auto;
+}
+
+.inner.narrow{
+    max-width:860px;
+}
+
+/* Background tones — all from the original palette */
+.cream{ background:#fcfaf7; }
+.band{ background:#f4ede2; }
+
+.eyebrow{
+    display:block;
+    margin-bottom:18px;
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:400;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:#b79558;
+}
+
+.sec-head{
+    text-align:center;
+    margin-bottom:clamp(48px,6vw,80px);
+}
+
+.sec-head.left{
+    text-align:left;
+}
+
+.sec-head h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-size:clamp(38px,5.2vw,62px);
+    line-height:1.12;
+    color:#7a5b36;
+}
+
+.sec-head .gold-line{
+    margin:30px auto 0;
+}
+
+.sec-intro{
+    max-width:660px;
+    margin:26px auto 0;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.8;
+    color:#666;
+}
+
+/* Soft luxury card used across sections */
+.dress-card,
+.gift-card,
+.event-card,
+.letter-story,
+.birth-details,
+.rsvp-form{
+    background:#fffdf9;
+    border:1px solid rgba(202,168,106,.28);
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(90,65,30,.07);
+}
+
+/* Italic gold accent line */
+.story-section .accent-line{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:#a98a55;
+}
+
+
+/* =====================================================
+   PHOTO FRAME (blessing + family photos)
+   ===================================================== */
+
+.photo-frame{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:#efe5d8;
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+
+.photo-frame img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.photo-frame::after{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border:1px solid rgba(255,255,255,.6);
+    border-radius:10px;
+    pointer-events:none;
+}
+
+.photo-caption{
+    position:absolute;
+    right:22px;
+    bottom:22px;
+    z-index:2;
+    padding:8px 14px;
+    background:rgba(255,253,249,.92);
+    border-radius:3px;
+    font-family:'Montserrat',sans-serif;
+    font-size:9px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#8b6d44;
+}
+
+
+/* =====================================================
+   OUR PRECIOUS LITTLE BLESSING
+   Text left, photo right
+   ===================================================== */
+
+.blessing-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:clamp(40px,7vw,100px);
+    align-items:center;
+}
+
+.blessing-text{
+    max-width:480px;
+    padding-left:34px;
+    border-left:1px solid #d7bc8d;
+}
+
+.blessing-text p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.95;
+    color:#666;
+}
+
+.blessing-text strong{
+    font-weight:600;
+    color:#7a5b36;
+}
+
+
+/* =====================================================
+   MADE WITH LOVE
+   Photo left, message right
+   ===================================================== */
+
+.family-layout{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:clamp(40px,7vw,100px);
+    align-items:center;
+}
+
+.family-message p{
+    margin-bottom:22px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#666;
+}
+
+.signature{
+    margin-top:36px;
+    padding-top:26px;
+    border-top:1px solid rgba(202,168,106,.5);
+}
+
+.signature span{
+    display:block;
+    font-family:'Pinyon Script',cursive;
+    font-size:46px;
+    line-height:1.1;
+    color:#9a7848;
+}
+
+.signature strong{
+    display:block;
+    margin-top:6px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    font-weight:400;
+    color:#6e5437;
+}
+
+
+/* =====================================================
+   STORY BEHIND HER NAME
+   One centered letter card
+   ===================================================== */
+
+.letter-story{
+    position:relative;
+    margin-top:38px;
+    padding:clamp(70px,8vw,92px) clamp(26px,6vw,80px) clamp(44px,5vw,64px);
+    text-align:center;
+    background:linear-gradient(160deg,#fffefb,#fbf5ec);
+}
+
+.letter-mark{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:grid;
+    place-items:center;
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    background:#fffdf9;
+    border:1px solid #d7bc8d;
+    font-family:'Pinyon Script',cursive;
+    font-size:46px;
+    line-height:1;
+    color:#b89559;
+    padding-top:6px;
+}
+
+.letter-story p{
+    max-width:640px;
+    margin:0 auto 24px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.8;
+    color:#666;
+}
+
+.letter-story strong{
+    font-weight:600;
+    color:#8b6d44;
+}
+
+.letter-story .emphasis{
+    margin:44px auto;
+    font-size:32px;
+    font-style:italic;
+    line-height:1.5;
+    color:#a98a55;
+}
+
+.letter-story .closing-line{
+    margin-bottom:14px;
+    font-size:27px;
+    color:#6e5437;
+}
+
+.letter-story .closing-line:last-child{
+    margin-bottom:0;
+}
+
+
+/* =====================================================
+   THE DAY SHE ARRIVED
+   Hairline table, 3 x 2
+   ===================================================== */
+
+.birth-details{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    overflow:hidden;
+}
+
+.birth-detail{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
+    min-height:200px;
+    padding:40px 24px;
+    text-align:center;
+    border-right:1px solid rgba(202,168,106,.3);
+    border-bottom:1px solid rgba(202,168,106,.3);
+}
+
+.birth-detail:nth-child(3n){ border-right:0; }
+.birth-detail:nth-child(n+4){ border-bottom:0; }
+
+.birth-detail svg{
+    width:24px;
+    height:24px;
+    stroke:#b89559;
+    stroke-width:1.4;
+}
+
+.detail-label{
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:#a08a68;
+}
+
+.birth-detail strong{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    font-weight:500;
+    line-height:1.4;
+    color:#6f5335;
+}
+
+
+/* =====================================================
+   WHAT TO WEAR
+   ===================================================== */
+
+.color-palette{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:10px;
+    margin:0 auto 64px;
+}
+
+.color-swatch{
+    text-align:center;
+}
+
+.swatch-color{
+    display:block;
+    aspect-ratio:1 / .92;
+    border-radius:10px;
+    box-shadow:
+        inset 0 0 0 9px rgba(255,255,255,.16),
+        0 10px 24px rgba(90,65,30,.12);
+}
+
+.swatch-name{
+    display:block;
+    margin-top:12px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:16px;
+    font-style:italic;
+    color:#8a7a68;
+}
+
+.dusty-rose{ background:#c99591; }
+.terracotta-blush{ background:#c98170; }
+.warm-mauve{ background:#a98688; }
+.muted-peach{ background:#d9aa91; }
+.champagne{ background:#d8bd91; }
+.warm-beige{ background:#cbb39a; }
+.camel{ background:#aa886d; }
+.ivory{ background:#eee6d8; }
+
+.dress-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+    margin-bottom:28px;
+}
+
+.dress-card{
+    position:relative;
+    padding:52px 44px 46px;
+    text-align:center;
+}
+
+.dress-card::before{
+    content:"";
+    position:absolute;
+    top:-1px;
+    left:36px;
+    width:44px;
+    height:2px;
+    background:#caa25d;
+}
+
+.dress-card h3{
+    margin-bottom:20px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;
+    font-weight:400;
+    color:#7a5b36;
+}
+
+.dress-card p{
+    max-width:480px;
+    margin:0 auto 16px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.75;
+    color:#666;
+}
+
+.dress-card .accent-line{
+    margin-top:22px;
+    font-size:21px;
+}
+
+.dress-note{
+    max-width:600px;
+    margin:0 auto;
+}
+
+.avoid-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:18px 0 28px;
+    padding:0;
+    list-style:none;
+}
+
+.avoid-list li{
+    padding:8px 16px;
+    border:1px solid rgba(202,168,106,.5);
+    border-radius:30px;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:.06em;
+    color:#8a7a68;
+}
+
+
+/* =====================================================
+   GIFT GUIDE
+   ===================================================== */
+
+.gift-sub{
+    margin:18px 0 0;
+    color:#a08a68;
+}
+
+.gift-intro{
+    max-width:640px;
+    margin:0 auto 64px;
+    text-align:center;
+}
+
+.gift-intro p{
+    margin-bottom:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.8;
+    color:#666;
+}
+
+.gift-intro .accent-line.big{
+    margin-top:34px;
+    font-size:30px;
+    line-height:1.5;
+}
+
+.gift-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.gift-card{
+    padding:40px 40px 44px;
+    text-align:center;
+    background:linear-gradient(145deg,#fffefb,#f8f2e9);
+}
+
+.gift-number{
+    display:grid;
+    place-items:center;
+    width:44px;
+    height:44px;
+    margin-bottom:6px;
+    border:1px solid #d7bc8d;
+    border-radius:50%;
+    font-family:'Cormorant Garamond',serif;
+    font-size:16px;
+    color:#a98a55;
+}
+
+.gift-card h3{
+    margin-bottom:10px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    font-weight:400;
+    color:#7a5b36;
+}
+
+.gift-description{
+    margin-bottom:20px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;
+    font-style:italic;
+    color:#9a8a75;
+}
+
+.gift-card ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.gift-card li{
+    padding:6px 0;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    color:#666;
+}
+
+.gift-card-text p{
+    margin-bottom:14px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    line-height:1.7;
+    color:#666;
+}
+
+.gift-card-text .accent-line{
+    margin-top:18px;
+    font-size:21px;
+}
+
+
+/* =====================================================
+   EVENT DETAILS
+   ===================================================== */
+
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:32px;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.event-card{
+    padding:52px 36px 46px;
+    text-align:center;
+}
+
+.event-icon{
+    display:grid;
+    place-items:center;
+    width:64px;
+    height:64px;
+    margin:0 auto 24px;
+    border:1px solid #d7bc8d;
+    border-radius:50%;
+    background:#f8f3ea;
+    font-size:24px;
+    color:#b89559;
+}
+
+.event-card h3{
+    margin-bottom:10px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    font-weight:400;
+    color:#7a5b36;
+}
+
+.event-date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    color:#8a7a68;
+}
+
+.event-time{
+    display:block;
+    margin:10px 0 22px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    font-weight:400;
+    letter-spacing:2px;
+    color:#b89559;
+}
+
+.event-card address{
+    margin-bottom:28px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    font-style:normal;
+    line-height:1.7;
+    color:#666;
+}
+
+.venue-btn{
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:40px;
+    background:#caa25d;
+    color:white;
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.venue-btn:hover{
+    background:#b88d46;
+    transform:translateY(-3px);
+}
+
+
+/* =====================================================
+   CELEBRATION SCHEDULE
+   ===================================================== */
+
+.timeline{
+    position:relative;
+    max-width:620px;
+    margin:0 auto;
+}
+
+.timeline-item{
+    position:relative;
+    display:flex;
+    gap:30px;
+    padding-bottom:44px;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.timeline-item.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.timeline-item:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:27px;
+    top:58px;
+    bottom:2px;
+    width:1px;
+    background:#d7bc8d;
+}
+
+.timeline-item:last-child{
+    padding-bottom:0;
+}
+
+.timeline-marker{
+    display:grid;
+    place-items:center;
+    flex:0 0 56px;
+    width:56px;
+    height:56px;
+    border:1px solid #d7bc8d;
+    border-radius:50%;
+    background:#fffdf9;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:.1em;
+    color:#b89559;
+}
+
+.timeline-content{
+    flex:1;
+    padding:2px 0 26px;
+    border-bottom:1px solid rgba(202,168,106,.4);
+}
+
+.timeline-item:last-child .timeline-content{
+    border-bottom:0;
+}
+
+.timeline-content time{
+    display:block;
+    margin-bottom:6px;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:#b89559;
+}
+
+.timeline-content h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    font-weight:400;
+    color:#6f5335;
+}
+
+
+/* =====================================================
+   COUNTDOWN (original cards, new heading)
+   ===================================================== */
+
+.countdown-section{
+    background:#fff;
+}
+
+.countdown-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.count-card{
+    padding:45px;
+    text-align:center;
+    background:#faf7f2;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.count-card h3{
+    margin-bottom:10px;
+    font-size:58px;
+    color:#caa25d;
+}
+
+.count-card p{
+    color:#777;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   RSVP
+   ===================================================== */
+
+.rsvp-note{
+    margin:0 auto 36px;
+    padding:24px 32px;
+    text-align:center;
+    background:rgba(255,253,249,.75);
+    border-left:1px solid #caa86a;
+    border-radius:0 14px 14px 0;
+}
+
+.rsvp-note p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.7;
+    color:#666;
+}
+
+.rsvp-note p + p{
+    margin-top:8px;
+}
+
+.rsvp-note strong{
+    font-weight:600;
+    color:#7a5b36;
+}
+
+.rsvp-form{
+    padding:clamp(28px,5vw,60px);
+    border-radius:26px;
+}
+
+.form-group{
+    margin-bottom:28px;
+}
+
+.rsvp-form label,
+.rsvp-form legend{
+    display:block;
+    margin-bottom:10px;
+    padding:0;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#9a8563;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="number"],
+.rsvp-form textarea{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid #e3d7c3;
+    border-radius:14px;
+    background:#fffefb;
+    outline:none;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    color:#5f4a30;
+    transition:.3s;
+}
+
+.rsvp-form input::placeholder,
+.rsvp-form textarea::placeholder{
+    color:#b9ab97;
+}
+
+.rsvp-form textarea{
+    resize:vertical;
+    min-height:140px;
+}
+
+.rsvp-form input[type="text"]:focus,
+.rsvp-form input[type="number"]:focus,
+.rsvp-form textarea:focus{
+    border-color:#caa25d;
+    box-shadow:0 0 15px rgba(202,162,93,.25);
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.attendance-fieldset{
+    border:0;
+    min-width:0;
+}
+
+.attendance-options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.rsvp-form .attendance-option{
+    position:relative;
+    margin:0;
+    cursor:pointer;
+}
+
+.attendance-option input{
+    position:absolute;
+    opacity:0;
+    inset:0;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+}
+
+.attendance-option span{
+    display:block;
+    padding:16px 10px;
+    border:1px solid #e3d7c3;
+    border-radius:14px;
+    background:#fffefb;
+    text-align:center;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#8a7a68;
+    transition:.3s;
+}
+
+.attendance-option:hover span{
+    border-color:#caa25d;
+}
+
+.attendance-option input:checked + span{
+    background:#caa25d;
+    border-color:#caa25d;
+    color:#fff;
+}
+
+.attendance-option input:focus-visible + span{
+    outline:2px solid #8a6a43;
+    outline-offset:3px;
+}
+
+.submit-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    background:#caa25d;
+    color:white;
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(202,162,93,.35);
+    background:#caa25d;
+}
+
+.submit-btn:disabled{
+    opacity:.7;
+    cursor:wait;
+    transform:none;
+    box-shadow:none;
+}
+
+.form-error{
+    margin-top:18px;
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    line-height:1.6;
+    color:#a5483f;
+}
+
+.form-error[hidden]{
+    display:none;
+}
+
+/* Honeypot: invisible to people, tempting to bots */
+.hp-field{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   RSVP SUCCESS POPUP
+   ===================================================== */
+
+.success-popup{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(30,25,20,.55);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .35s ease, visibility .35s ease;
+}
+
+.success-popup.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.success-content{
+    width:min(92vw,420px);
+    padding:44px 34px;
+    text-align:center;
+    background:#fffaf5;
+    border-radius:22px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    transform:translateY(20px) scale(.95);
+    transition:transform .35s ease;
+}
+
+.success-popup.show .success-content{
+    transform:translateY(0) scale(1);
+}
+
+.success-icon{
+    margin-bottom:14px;
+    font-size:42px;
+}
+
+.success-content h2{
+    margin-bottom:14px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    font-weight:400;
+    color:#7a5b36;
+}
+
+.success-content p{
+    margin:0 auto 26px;
+    max-width:320px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.7;
+    color:#666;
+}
+
+.success-content button{
+    padding:13px 34px;
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   THANK YOU + FOOTER
+   ===================================================== */
+
+.thanks-section{
+    text-align:center;
+    background:linear-gradient(180deg,#f9f4ea,#f1e8da);
+}
+
+.thanks-ornament{
+    margin-bottom:10px;
+    font-size:22px;
+    color:#b89559;
+}
+
+.thanks-section h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(52px,7vw,84px);
+    font-weight:400;
+    line-height:1.05;
+    color:#6f5335;
+}
+
+.thanks-sub{
+    margin-top:14px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    font-style:italic;
+    color:#9a8a75;
+}
+
+.thanks-letter{
+    max-width:640px;
+    margin:46px auto;
+    padding:44px 0;
+    border-top:1px solid rgba(202,168,106,.55);
+    border-bottom:1px solid rgba(202,168,106,.55);
+}
+
+.thanks-letter p{
+    margin-bottom:16px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    line-height:1.8;
+    color:#666;
+}
+
+.thanks-script{
+    display:block;
+    margin-top:26px;
+    font-family:'Pinyon Script',cursive;
+    font-size:40px;
+    line-height:1.1;
+    color:#9a7848;
+}
+
+.thanks-signature{
+    display:block;
+    margin-top:4px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    font-weight:400;
+    color:#6e5437;
+}
+
+.final-script{
+    display:block;
+    font-family:'Pinyon Script',cursive;
+    font-size:clamp(56px,10vw,104px);
+    line-height:1.15;
+    color:#7a5b36;
+}
+
+.final-name strong{
+    display:block;
+    margin-top:4px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(24px,3.4vw,38px);
+    font-weight:400;
+    letter-spacing:4px;
+    color:#8b6d44;
+}
+
+.thanks-cross{
+    margin-top:44px;
+    font-size:26px;
+    color:#c7a96b;
+}
+
+.site-footer{
+    padding:28px 20px;
+    text-align:center;
+    background:#fcfaf7;
+}
+
+.site-footer p{
+    display:inline;
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:#a08a68;
+}
+
+.site-footer span{
+    margin-left:10px;
+    font-size:11px;
+    color:#b89559;
+}
+
+
+/* =====================================================
+   KEYBOARD FOCUS + REDUCED MOTION
+   ===================================================== */
+
+a:focus-visible,
+button:focus-visible{
+    outline:2px solid #8a6a43;
+    outline-offset:3px;
+}
+
+@media (prefers-reduced-motion:reduce){
+    .fade,
+    .timeline-item{
+        opacity:1;
+        transform:none;
+        transition:none;
+    }
+    .sparkles,
+    #hero,
+    .scroll-indicator,
+    .gallery-header h2{
+        animation:none;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE — TABLET
+   ===================================================== */
+
+@media (max-width:992px){
+
+    .color-palette{
+        grid-template-columns:repeat(4,1fr);
+        row-gap:22px;
+    }
+
+    .countdown-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE — MOBILE
+   ===================================================== */
+
+@media (max-width:768px){
 
     html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
+    body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
     }
 
-    * {
-        box-sizing: border-box;
+    img{
+        max-width:100%;
+        height:auto;
     }
 
-    img {
-        max-width: 100%;
-        height: auto;
+    section{
+        width:100%;
+        overflow:hidden;
     }
 
-    section {
-        width: 100%;
-        overflow: hidden;
+    .story-section{
+        padding:70px 6%;
     }
 
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin: 0 auto;
+    .letter-story{
+        overflow:visible;
     }
 
-
-    /* -----------------------------------------------------
-       OPENING / LOADER
-       ----------------------------------------------------- */
-
-    .loader-content {
-        width: calc(100% - 40px);
-        max-width: 420px;
-        margin: 0 auto;
-        padding: 20px;
-        text-align: center;
+    .eyebrow{
+        font-size:10.5px;
+        letter-spacing:.24em;
     }
 
-    .loader-content h1 {
-        font-size: clamp(28px, 8vw, 42px);
-        line-height: 1.15;
-        overflow-wrap: break-word;
+    .sec-intro{
+        font-size:18px;
     }
 
-    .loader-content h2 {
-        font-size: clamp(20px, 6vw, 30px);
-        line-height: 1.25;
-        overflow-wrap: break-word;
-    }
+    /* ---- Opening / loader ---- */
 
-    .loader-content p {
-        font-size: 14px;
-        line-height: 1.6;
+    .loader-content{
+        width:calc(100% - 40px);
+        max-width:420px;
+        margin:0 auto;
+        padding:20px;
+        text-align:center;
     }
 
-    #enterButton {
-        max-width: 100%;
-        width: auto;
-        min-width: 180px;
-        padding: 13px 22px;
-        font-size: 14px;
+    .loader-content h1{
+        font-size:clamp(28px,8vw,42px);
+        line-height:1.15;
+        overflow-wrap:break-word;
     }
-
 
-    /* -----------------------------------------------------
-       ENVELOPE
-       ----------------------------------------------------- */
-
-    .envelope {
-        transform: scale(.72);
-        transform-origin: center center;
-        max-width: 100%;
+    .loader-content h2{
+        font-size:clamp(20px,6vw,30px);
+        line-height:1.25;
+        overflow-wrap:break-word;
     }
 
-    .envelope-screen,
-    #envelopeScreen {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
+    .loader-content p{
+        font-size:14px;
+        line-height:1.6;
     }
-
 
-    /* -----------------------------------------------------
-       HERO
-       ----------------------------------------------------- */
-
-    .hero {
-        width: 100%;
-        min-height: auto;
-        overflow: hidden;
+    #enterButton{
+        max-width:100%;
+        width:auto;
+        min-width:180px;
+        padding:13px 22px;
+        font-size:14px;
     }
 
-    .hero h1 {
-        font-size: clamp(36px, 12vw, 70px);
-        line-height: 1.05;
-        max-width: 95%;
-        margin-left: auto;
-        margin-right: auto;
-        overflow-wrap: break-word;
+    #typing{
+        font-size:clamp(22px,6vw,32px) !important;
+        line-height:1.15;
+        max-width:90%;
+        margin:10px auto;
+        min-height:auto;
+        overflow-wrap:break-word;
     }
 
-    .hero h2 {
-        font-size: clamp(22px, 7vw, 36px);
-        line-height: 1.2;
-    }
+    /* ---- Envelope ---- */
 
-    .hero p {
-        font-size: 14px;
-        line-height: 1.6;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+    .envelope{
+        transform:scale(.72);
+        transform-origin:center center;
+        max-width:100%;
     }
 
+    #envelopeScreen{
+        width:100%;
+        max-width:100%;
+        overflow:hidden;
+    }
 
-    /* -----------------------------------------------------
-       GENERAL SECTION TITLES
-       ----------------------------------------------------- */
+    /* ---- Hero ---- */
 
-    .section-title {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
+    #hero .hero-content{
+        padding:20px;
     }
 
-    .section-title span,
-    .small-title {
-        font-size: 11px;
-        letter-spacing: 2px;
+    #hero .welcome{
+        font-size:13px;
+        letter-spacing:3px;
     }
 
-    .section-title h2 {
-        font-size: clamp(26px, 8vw, 42px);
-        line-height: 1.15;
-        max-width: 100%;
-        overflow-wrap: break-word;
+    #hero .hero-content h1{
+        font-size:clamp(46px,14vw,74px);
+        line-height:1.05;
     }
 
-
-    /* -----------------------------------------------------
-       OUR PRECIOUS LITTLE BLESSING
-       ----------------------------------------------------- */
-
-    .section.fade {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+    #hero .hero-content h2{
+        font-size:clamp(22px,7vw,32px);
+        margin-bottom:20px;
     }
 
-    .section.fade .container {
-        width: 100%;
-        padding: 0 20px;
+    #hero .date{
+        font-size:12px;
+        letter-spacing:3px;
     }
 
-    .section.fade .container h2 {
-        font-size: clamp(27px, 8vw, 42px);
-        line-height: 1.15;
-        max-width: 100%;
-        overflow-wrap: break-word;
-        text-align: center;
+    #hero .verse{
+        font-size:21px;
+        line-height:1.6;
     }
 
-    .section.fade .container p {
-        font-size: 15px;
-        line-height: 1.75;
-        max-width: 100%;
+    #hero .scroll-indicator{
+        margin-top:30px;
+        font-size:32px;
     }
 
+    /* ---- Blessing + family ---- */
 
-    /* -----------------------------------------------------
-       OUR LITTLE FAMILY
-       ----------------------------------------------------- */
-
-    .family-text {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 20px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+    .blessing-grid,
+    .family-layout{
+        grid-template-columns:1fr;
+        gap:38px;
     }
 
-    .family-text .small-title {
-        font-size: 11px;
-        letter-spacing: 2px;
+    .blessing-text{
+        max-width:none;
+        padding-left:22px;
     }
 
-    .family-text h2 {
-        font-size: clamp(27px, 8vw, 40px);
-        line-height: 1.15;
-        overflow-wrap: break-word;
+    .blessing-text p,
+    .family-message p{
+        font-size:19px;
     }
 
-    .family-text p {
-        font-size: 15px;
-        line-height: 1.7;
+    .signature span{
+        font-size:38px;
     }
 
+    .signature strong{
+        font-size:25px;
+    }
 
-    /* -----------------------------------------------------
-       NAME STORY / BOOK
-       ----------------------------------------------------- */
+    /* ---- Name story ---- */
 
-    .name-story {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-        overflow: hidden;
+    .letter-story p{
+        font-size:18px;
     }
 
-    .name-story .book {
-        width: calc(100% - 30px);
-        max-width: 650px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        padding: 25px 20px;
+    .letter-story .emphasis{
+        margin:34px auto;
+        font-size:25px;
     }
 
-    .name-story .book.reverse {
-        flex-direction: column;
+    .letter-story .closing-line{
+        font-size:21px;
     }
 
-    .book-left,
-    .book-right {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-    }
+    /* ---- Birth details: 2 columns ---- */
 
-    .book-left {
-        text-align: center;
+    .birth-details{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .book-left .chapter {
-        font-size: 11px;
-        letter-spacing: 2px;
+    .birth-detail{
+        min-height:170px;
+        padding:28px 14px;
     }
 
-    .book-left h2 {
-        font-size: clamp(27px, 8vw, 40px);
-        line-height: 1.15;
-        overflow-wrap: break-word;
-    }
+    .birth-detail:nth-child(3n){ border-right:1px solid rgba(202,168,106,.3); }
+    .birth-detail:nth-child(2n){ border-right:0; }
+    .birth-detail:nth-child(n+4){ border-bottom:1px solid rgba(202,168,106,.3); }
+    .birth-detail:nth-child(n+5){ border-bottom:0; }
 
-    .book-left .intro {
-        font-size: 15px;
-        line-height: 1.7;
+    .birth-detail strong{
+        font-size:19px;
     }
 
-    .book-right {
-        text-align: left;
-    }
+    /* ---- Dress code ---- */
 
-    .book-right p {
-        font-size: 15px;
-        line-height: 1.8;
-        margin: 0;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
+    .color-palette{
+        gap:12px;
     }
 
-    .book-right strong {
-        overflow-wrap: break-word;
+    .swatch-name{
+        font-size:14px;
     }
-
-
-    /* -----------------------------------------------------
-       SECOND NAME STORY - FRANZELLE
-       ----------------------------------------------------- */
 
-    .name-story.second {
-        width: 100%;
-        overflow: hidden;
+    .dress-grid{
+        grid-template-columns:1fr;
     }
 
-    .name-story.second .book-left h2 {
-        font-size: clamp(30px, 9vw, 44px);
+    .dress-card{
+        padding:44px 24px 36px;
     }
 
-    .name-story.second .book-right p {
-        font-size: 15px;
-        line-height: 1.8;
+    .dress-card h3{
+        font-size:30px;
     }
 
-
-    /* -----------------------------------------------------
-       TIMELINE / OUR JOURNEY
-       ----------------------------------------------------- */
-
-    .timeline {
-        width: calc(100% - 40px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
+    .dress-card p{
+        font-size:18px;
     }
 
-    .timeline-item {
-        width: 100%;
-        max-width: 100%;
-    }
+    /* ---- Gifts ---- */
 
-    .timeline-content {
-        width: calc(100% - 45px);
-        max-width: calc(100% - 45px);
-        padding: 18px;
-        overflow-wrap: break-word;
+    .gift-grid{
+        grid-template-columns:1fr;
     }
 
-    .timeline-content h3 {
-        font-size: 17px;
-        line-height: 1.3;
+    .gift-card{
+        padding:34px 24px 36px;
     }
 
-    .timeline-content h4 {
-        font-size: 18px;
-        line-height: 1.3;
+    .gift-intro p{
+        font-size:19px;
     }
 
-    .timeline-content p {
-        font-size: 14px;
-        line-height: 1.65;
+    .gift-intro .accent-line.big{
+        font-size:24px;
     }
-
 
-    /* -----------------------------------------------------
-       BIRTH DETAILS
-       ----------------------------------------------------- */
+    /* ---- Invitation card (original) ---- */
 
-    .birth-header {
-        width: calc(100% - 40px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+    .invitation-card{
+        width:calc(100% - 40px);
+        max-width:500px;
+        margin-left:auto;
+        margin-right:auto;
+        padding:35px 22px;
+        overflow:hidden;
     }
 
-    .birth-header h2 {
-        font-size: clamp(27px, 8vw, 40px);
-        line-height: 1.15;
+    .invitation-card h1{
+        font-size:clamp(32px,10vw,55px);
+        line-height:1.05;
+        overflow-wrap:break-word;
     }
 
-    .birth-header p {
-        font-size: 14px;
-        line-height: 1.7;
+    .invitation-card h2.date-big{
+        font-size:clamp(23px,7vw,36px);
+        line-height:1.2;
+        overflow-wrap:break-word;
     }
 
-    .birth-grid {
-        width: calc(100% - 40px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 18px;
+    .invitation-card h3{
+        font-size:20px;
     }
 
-    .birth-card {
-        width: 100%;
-        max-width: 100%;
+    .invitation-card .parents{
+        font-size:18px;
+        line-height:1.4;
     }
 
-
-    /* -----------------------------------------------------
-       INVITATION CARD
-       ----------------------------------------------------- */
-
-    .invitation-card {
-        width: calc(100% - 40px);
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 35px 22px;
-        overflow: hidden;
+    .invitation-card p{
+        font-size:14px;
+        line-height:1.7;
     }
 
-    .invitation-card h1 {
-        font-size: clamp(32px, 10vw, 55px);
-        line-height: 1.05;
-        overflow-wrap: break-word;
+    .church-name{
+        font-size:13px;
+        line-height:1.6;
     }
 
-    .invitation-card h2.date-big {
-        font-size: clamp(23px, 7vw, 36px);
-        line-height: 1.2;
-        overflow-wrap: break-word;
-    }
+    /* ---- Event details ---- */
 
-    .invitation-card h3 {
-        font-size: 20px;
+    .event-grid{
+        grid-template-columns:1fr;
+        gap:22px;
     }
 
-    .invitation-card .parents {
-        font-size: 18px;
-        line-height: 1.4;
+    .event-card{
+        padding:44px 24px 38px;
     }
 
-    .invitation-card p {
-        font-size: 14px;
-        line-height: 1.7;
+    .event-card h3{
+        font-size:30px;
     }
 
-    .church-name {
-        font-size: 13px;
-        line-height: 1.6;
+    .event-time{
+        font-size:36px;
     }
 
+    /* ---- Schedule ---- */
 
-    /* -----------------------------------------------------
-       EVENT DETAILS
-       ----------------------------------------------------- */
-
-    .venue-grid {
-        width: calc(100% - 40px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .timeline-item{
+        gap:20px;
     }
 
-    .venue-card {
-        width: 100%;
-        max-width: 100%;
+    .timeline-content h3{
+        font-size:25px;
     }
 
-    .venue-card h3 {
-        font-size: 20px;
-    }
+    /* ---- Countdown (original mobile) ---- */
 
-    .venue-card h4 {
-        font-size: 18px;
+    .countdown-grid{
+        width:100%;
+        max-width:500px;
+        margin-left:auto;
+        margin-right:auto;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:15px;
     }
 
-    .venue-card p {
-        font-size: 14px;
-        line-height: 1.6;
+    .count-card{
+        width:100%;
+        min-width:0;
+        padding:20px 10px;
     }
 
-    .venue-btn {
-        max-width: 100%;
+    .count-card h3{
+        font-size:clamp(28px,9vw,45px);
+        line-height:1;
     }
 
-    .schedule-card {
-        width: calc(100% - 40px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
+    .count-card p{
+        font-size:11px;
+        letter-spacing:1px;
     }
 
-    .schedule-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+    /* ---- RSVP ---- */
 
-    .schedule-row span {
-        flex: 0 0 auto;
-        font-size: 13px;
+    .rsvp-note p{
+        font-size:18px;
     }
 
-    .schedule-row p {
-        min-width: 0;
-        font-size: 14px;
-        overflow-wrap: break-word;
+    .form-row{
+        gap:14px;
     }
-
-
-    /* -----------------------------------------------------
-       COUNTDOWN
-       2 COLUMNS ON MOBILE
-       ----------------------------------------------------- */
-
-    .countdown-grid {
-        width: calc(100% - 40px);
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
 
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
+    .attendance-options{
+        grid-template-columns:1fr;
     }
 
-    .count-card {
-        width: 100%;
-        min-width: 0;
-        padding: 20px 10px;
+    .rsvp-form input[type="text"],
+    .rsvp-form input[type="number"],
+    .rsvp-form textarea{
+        font-size:18px;
     }
 
-    .count-card h3 {
-        font-size: clamp(28px, 9vw, 45px);
-        line-height: 1;
-    }
+    /* ---- Gallery (original mobile) ---- */
 
-    .count-card p {
-        font-size: 11px;
-        letter-spacing: 1px;
+    .gallery-section{
+        padding:70px 6%;
     }
-
 
-    /* -----------------------------------------------------
-       GALLERY
-       ----------------------------------------------------- */
-
-    .gallery-header {
-        width: calc(100% - 40px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+    .gallery-header{
+        width:100%;
+        max-width:650px;
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
     }
 
-    .gallery-header h2 {
-        font-size: clamp(24px, 7vw, 36px);
-        line-height: 1.2;
-        max-width: 100%;
-        overflow-wrap: break-word;
+    .gallery-header h2{
+        font-size:clamp(24px,7vw,36px);
+        line-height:1.2;
+        max-width:100%;
+        overflow-wrap:break-word;
     }
 
-    .gallery-header p {
-        font-size: 14px;
-        line-height: 1.7;
+    .gallery-header p{
+        font-size:14px;
+        line-height:1.7;
     }
 
-    .gallery-grid {
-        width: calc(100% - 30px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+    .gallery-grid{
+        width:100%;
+        max-width:650px;
+        margin-left:auto;
+        margin-right:auto;
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
     }
 
-    .gallery-item {
-        width: 100%;
-        max-width: 100%;
-        display: block;
+    .gallery-item{
+        width:100%;
+        max-width:100%;
+        display:block;
     }
-
 
-    /* -----------------------------------------------------
-       LIGHTBOX
-       ----------------------------------------------------- */
+    /* ---- Lightbox (original mobile) ---- */
 
-    #lightbox {
-        padding: 15px;
+    #lightbox{
+        padding:15px;
     }
 
-    #lightboxImage {
-        max-width: 92vw;
-        max-height: 80vh;
-        object-fit: contain;
+    #lightboxImage{
+        max-width:92vw;
+        max-height:80vh;
+        object-fit:contain;
     }
 
     #prevPhoto,
-    #nextPhoto {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
+    #nextPhoto{
+        width:40px;
+        height:40px;
+        font-size:18px;
+        padding:0;
     }
 
+    /* ---- Thank you ---- */
 
-    /* -----------------------------------------------------
-       RSVP
-       ----------------------------------------------------- */
-
-    .rsvp-card {
-        width: calc(100% - 30px);
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 25px 18px;
-    }
-
-    #rsvpForm {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .form-group {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        font-size: 16px;
-    }
-
-    .submit-btn {
-        width: 100%;
-        max-width: 100%;
-        display: block;
-    }
-
-
-    /* -----------------------------------------------------
-       SUCCESS POPUP
-       ----------------------------------------------------- */
-
-    .success-content {
-        width: calc(100% - 40px);
-        max-width: 400px;
-        padding: 30px 20px;
-        margin: 0 auto;
-    }
-
-    .success-content h2 {
-        font-size: 28px;
-    }
-
-    .success-content p {
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-
-    /* -----------------------------------------------------
-       SCROLL / TOP BUTTON
-       ----------------------------------------------------- */
-
-    #topBtn {
-        right: 15px;
-        bottom: 15px;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL PHONES
-   Extra adjustment for 375px and smaller
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-    .container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .section-title {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .section-title h2 {
-        font-size: 27px;
-    }
-
-    .section.fade .container h2 {
-        font-size: 27px;
-    }
-
-    .family-text {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .name-story .book {
-        width: calc(100% - 24px);
-        padding: 22px 17px;
-    }
-
-    .book-left h2 {
-        font-size: 28px;
-    }
-
-    .book-right p {
-        font-size: 14px;
-        line-height: 1.75;
-    }
-
-    .timeline {
-        width: calc(100% - 30px);
-    }
-
-    .gallery-header {
-        width: calc(100% - 30px);
-    }
-
-    .gallery-header h2 {
-        font-size: 25px;
-    }
-
-    .countdown-grid {
-        width: calc(100% - 30px);
-        gap: 10px;
-    }
-
-    .count-card {
-        padding: 18px 8px;
-    }
-
-    .count-card h3 {
-        font-size: 31px;
-    }
-
-    .count-card p {
-        font-size: 10px;
-    }
-
-    .invitation-card {
-        width: calc(100% - 30px);
-        padding: 30px 17px;
-    }
-
-}/* =========================================================
-   FINAL MOBILE POLISH
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* -----------------------------------------------------
-       TYPING â€” "A Beautiful Blessing"
-       Prevents it from taking over the opening screen
-       ----------------------------------------------------- */
-
-    #typing {
-        font-size: clamp(22px, 6vw, 32px) !important;
-        line-height: 1.15;
-        max-width: 90%;
-        margin: 10px auto;
-        min-height: auto;
-        overflow-wrap: break-word;
-        word-break: normal;
-    }
-
-
-    /* -----------------------------------------------------
-       NAME STORY CARDS
-       Remove desktop book/card constraints on mobile
-       so paragraphs don't get clipped on the left/right.
-       ----------------------------------------------------- */
-
-    .name-story .book,
-    .name-story .book.reverse {
-        width: calc(100% - 24px);
-        max-width: 650px;
-
-        display: flex;
-        flex-direction: column;
-
-        padding: 28px 20px;
-        margin-left: auto;
-        margin-right: auto;
-
-        overflow: visible;
-    }
-
-    .name-story .book-left,
-    .name-story .book-right {
-        width: 100%;
-        max-width: 100%;
-
-        padding: 0;
-        margin: 0;
-
-        overflow: visible;
-    }
-
-
-    /* -----------------------------------------------------
-       STORY PARAGRAPHS
-       Give the text its own clean reading area
-       ----------------------------------------------------- */
-
-    .name-story .book-right {
-        width: 100%;
-        padding: 0;
-        text-align: left;
-    }
-
-    .name-story .book-right p {
-        width: 100%;
-        max-width: 100%;
-
-        margin: 0;
-        padding: 0;
-
-        font-size: 15px;
-        line-height: 1.8;
-
-        text-align: left;
-
-        overflow: visible;
-        overflow-wrap: break-word;
-        word-break: normal;
-    }
-
-
-    /* -----------------------------------------------------
-       PREVENT THE DECORATIVE BOOK EFFECT FROM
-       CUTTING OFF THE FIRST WORDS OF PARAGRAPHS
-       ----------------------------------------------------- */
-
-    .name-story .book-right::before,
-    .name-story .book-right::after {
-        display: none;
-    }
-
-
-    /* -----------------------------------------------------
-       FRANZELLE STORY
-       ----------------------------------------------------- */
-
-    .name-story.second .book,
-    .name-story.second .book.reverse {
-        width: calc(100% - 24px);
-        padding: 28px 20px;
-    }
-
-    .name-story.second .book-right {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    .name-story.second .book-right p {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-
-        font-size: 15px;
-        line-height: 1.8;
-
-        text-align: left;
-
-        overflow: visible;
-        overflow-wrap: break-word;
-        word-break: normal;
-    }
-
-}
-
-
-/* =========================================================
-   EXTRA SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-    #typing {
-        font-size: 24px !important;
-        max-width: 85%;
-    }
-
-    .name-story .book,
-    .name-story .book.reverse,
-    .name-story.second .book,
-    .name-story.second .book.reverse {
-        width: calc(100% - 20px);
-        padding: 24px 16px;
-    }
-
-    .name-story .book-right p,
-    .name-story.second .book-right p {
-        font-size: 14px;
-        line-height: 1.75;
-    }
-
-}
-@media (max-width: 768px) {
-
-    /* ==========================================
-       NAME STORY â€” CLEAN MOBILE LAYOUT
-       ========================================== */
-
-    .name-story .book,
-    .name-story .book.reverse {
-        width: calc(100% - 32px);
-        max-width: 620px;
-        margin: 0 auto;
-
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-
-        padding: 30px 22px;
-
-        overflow: visible;
-    }
-
-    .name-story .book-left,
-    .name-story .book-right {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    /* Title area */
-
-    .name-story .book-left {
-        text-align: center;
-    }
-
-    .name-story .chapter {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-        margin-bottom: 12px;
-    }
-
-    .name-story .book-left h2 {
-        font-size: clamp(27px, 8vw, 38px);
-        line-height: 1.15;
-        margin: 0 auto 15px;
-    }
-
-    .name-story .book-left .intro {
-        font-size: 14px;
-        line-height: 1.7;
-        margin-top: 15px;
-    }
-
-    /* Story text */
-
-    .name-story .book-right {
-        text-align: left;
-    }
-
-    .name-story .book-right p {
-        width: 100%;
-        max-width: 100%;
-
-        margin: 0 0 20px;
-        padding: 0;
-
-        font-size: 14.5px;
-        line-height: 1.85;
-
-        overflow: visible;
-        overflow-wrap: break-word;
-        word-break: normal;
+    .thanks-letter p{
+        font-size:18px;
     }
 
-    .name-story .book-right p:last-child {
-        margin-bottom: 0;
+    .thanks-script{
+        font-size:34px;
     }
-
-    /* Franzelle section */
 
-    .name-story.second .book {
-        gap: 28px;
+    .thanks-signature{
+        font-size:24px;
     }
 
-    .name-story.second .book-left h2 {
-        font-size: clamp(30px, 9vw, 42px);
-    }
+    /* ---- Buttons ---- */
 
-    .name-story.second .book-right p {
-        font-size: 14.5px;
-        line-height: 1.85;
-        margin-bottom: 20px;
+    #topBtn{
+        right:15px;
+        bottom:15px;
     }
-
-}
-
-
-/* ==========================================
-   VERY SMALL PHONES
-   ========================================== */
-
-@media (max-width: 390px) {
 
-    .name-story .book,
-    .name-story .book.reverse {
-        width: calc(100% - 24px);
-        padding: 27px 18px;
-        gap: 25px;
+    #musicBtn{
+        left:15px;
+        bottom:15px;
+        width:52px;
+        height:52px;
+        padding:0;
     }
 
-    .name-story .book-right p,
-    .name-story.second .book-right p {
-        font-size: 14px;
-        line-height: 1.8;
-        margin-bottom: 18px;
+    .success-content{
+        padding:34px 22px;
     }
 
 }
-/* =========================================================
-   MOBILE â€” NAME STORY SPACING & CARD FIX
-   Desktop remains unchanged
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* -----------------------------------------
-       STORY BEHIND HER NAME
-       ----------------------------------------- */
-
-    .name-story {
-        padding: 45px 16px;
-        overflow: hidden;
-    }
-
-    .name-story .book {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        overflow: visible;
-    }
-
-    .name-story .book-left,
-    .name-story .book-right {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow: visible;
-    }
-
-    /* Chapter / title side */
-
-    .name-story .book-left {
-        padding: 28px 22px 20px;
-        text-align: center;
-    }
-
-    .name-story .book-left h2 {
-        font-size: clamp(26px, 7vw, 34px);
-        line-height: 1.15;
-        margin: 8px 0 12px;
-        word-break: normal;
-    }
-
-    .name-story .chapter {
-        font-size: 11px;
-        letter-spacing: 2px;
-        margin-bottom: 8px;
-    }
-
-    .name-story .book-left .intro {
-        font-size: 14px;
-        line-height: 1.7;
-        margin: 0 auto;
-        max-width: 300px;
-    }
-
-    /* -----------------------------------------
-       STORY TEXT
-       Prevent text from being clipped
-       ----------------------------------------- */
-
-    .name-story .book-right {
-        padding: 10px 24px 28px;
-        text-align: left;
-    }
-
-    .name-story .book-right p {
-        font-size: 15px;
-        line-height: 1.85;
-        margin: 0;
-        word-break: normal;
-        overflow-wrap: break-word;
-        white-space: normal;
-    }
-
-    .name-story .book-right strong {
-        white-space: normal;
-    }
-
-    /* -----------------------------------------
-       GOLD LINE
-       ----------------------------------------- */
-
-    .name-story .gold-line {
-        width: 55px;
-        margin: 10px auto 14px;
-    }
-
-/* =========================================
-   FRANZELLE â€” MOBILE
-   Match Story Behind Her Name
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .name-story.second {
-        padding: 5px 16px 45px;
-        margin-top: -5px;
-        overflow: hidden;
-    }
-
-    .name-story.second .book {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        overflow: visible;
-    }
-
-    /* Franzelle title */
-
-    .name-story.second .book-left {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 28px 22px 20px;
-        text-align: center;
-    }
-
-    .name-story.second .book-left h2 {
-        font-size: clamp(26px, 7vw, 34px);
-        line-height: 1.15;
-        margin: 0 0 12px;
-    }
-
-    .name-story.second .book-left .gold-line {
-        width: 55px;
-        margin: 10px auto 14px;
-    }
 
-    .name-story.second .book-left p {
-        font-size: 14px;
-        line-height: 1.7;
-        margin: 0 auto;
-    }
-
-    /* Franzelle story */
 
-    .name-story.second .book-right {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px 24px 32px;
-        text-align: left;
-        overflow: visible;
-    }
+/* =====================================================
+   RESPONSIVE — SMALL PHONES
+   ===================================================== */
 
-    .name-story.second .book-right p {
-        font-size: 15px;
-        line-height: 1.85;
-        margin: 0;
-        padding: 0;
-        word-break: normal;
-        overflow-wrap: break-word;
-        white-space: normal;
-    }
+@media (max-width:340px){
 
-    .name-story.second .book-right strong {
-        white-space: normal;
+    .color-palette{
+        grid-template-columns:repeat(2,1fr);
     }
-    /* -----------------------------------------
-       EXTRA MOBILE SPACING CONTROL
-       ----------------------------------------- */
 
-    .name-story + .name-story {
-        margin-top: -10px;
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
     }
-
-}
-/* =========================================
-   RSVP SUCCESS POPUP
-========================================= */
-
-.success-popup {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    padding: 20px;
-
-    background: rgba(30, 25, 20, 0.55);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-
-    backdrop-filter: blur(5px);
-}
-
-
-/* SHOW POPUP */
-
-.success-popup.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* POPUP CARD */
-
-.success-popup .success-content {
-
-    width: min(90%, 420px);
-
-    padding: 45px 35px;
-
-    background: #fffaf5;
-
-    border-radius: 20px;
-
-    text-align: center;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.2);
-
-    transform: translateY(20px) scale(0.95);
-
-    transition:
-        transform 0.35s ease;
-}
-
-
-/* CARD ANIMATION */
-
-.success-popup.show .success-content {
-
-    transform: translateY(0) scale(1);
-
-}
-
-
-/* HEART */
-
-.success-icon {
-
-    font-size: 42px;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* TITLE */
-
-.success-popup h2 {
-
-    margin: 0 0 15px;
-
-    font-size: 30px;
-
-}
-
-
-/* MESSAGE */
-
-.success-popup p {
-
-    margin: 0 auto 25px;
-
-    max-width: 320px;
-
-    line-height: 1.7;
-
 }
 
+@media (max-width:390px){
 
-/* CLOSE BUTTON */
-
-.success-popup button {
-
-    border: none;
-
-    padding: 12px 30px;
-
-    border-radius: 30px;
-
-    cursor: pointer;
-
-    font-size: 15px;
-
-}
-
-
-/* =========================================
-   MOBILE RSVP POPUP
-========================================= */
-
-@media (max-width: 600px) {
-
-    .success-popup {
-        padding: 18px;
+    .count-card{
+        padding:18px 8px;
     }
-
-    .success-popup .success-content {
-
-        width: 100%;
-
-        max-width: 350px;
-
-        padding: 35px 24px;
-
-        border-radius: 18px;
-
-    }
-
-    .success-icon {
-        font-size: 36px;
-    }
-
-    .success-popup h2 {
-        font-size: 26px;
-    }
-
-    .success-popup p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .success-popup button {
-        width: 100%;
-    }
-
-}
-/* =========================================
-   RSVP SUCCESS POPUP - FINAL FIX
-========================================= */
-
-#successPopup {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 20px !important;
-    box-sizing: border-box !important;
-
-    background: rgba(0, 0, 0, 0.55) !important;
-
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-
-    z-index: 999999 !important;
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease !important;
-}
-
-#successPopup.show {
-    display: flex !important;
-
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-
-    z-index: 999999 !important;
-}
-
-
-#successPopup .success-content {
-    position: relative !important;
-
-    display: block !important;
-
-    width: min(90vw, 420px) !important;
-    max-width: 420px !important;
-
-    min-height: 200px !important;
-
-    box-sizing: border-box !important;
-
-    margin: auto !important;
-    padding: 40px 30px !important;
-
-    background: #fffaf5 !important;
-
-    color: #333 !important;
-
-    border-radius: 20px !important;
-
-    text-align: center !important;
-
-    opacity: 1 !important;
-    visibility: visible !important;
-
-    transform: none !important;
-
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
-
-    z-index: 1000000 !important;
-}
-
-
-#successPopup .success-icon {
-    display: block !important;
-
-    font-size: 42px !important;
-
-    margin-bottom: 15px !important;
-}
-
-
-#successPopup .success-content h2 {
-    display: block !important;
-
-    margin: 0 0 15px !important;
-
-    color: #333 !important;
-
-    font-size: 30px !important;
-}
-
-
-#successPopup .success-content p {
-    display: block !important;
-
-    margin: 0 0 25px !important;
-
-    color: #555 !important;
-
-    font-size: 15px !important;
-
-    line-height: 1.7 !important;
-}
-
-
-#successPopup #closePopupButton {
-    display: inline-block !important;
-
-    padding: 12px 30px !important;
-
-    border: none !important;
-    border-radius: 30px !important;
-
-    background: #333 !important;
-    color: white !important;
-
-    cursor: pointer !important;
-
-    font-size: 15px !important;
-
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-
-@media (max-width: 600px) {
-
-    #successPopup {
-        padding: 18px !important;
-    }
-
-    #successPopup .success-content {
-        width: 100% !important;
-        max-width: 360px !important;
-
-        padding: 35px 22px !important;
-    }
-
-    #successPopup .success-content h2 {
-        font-size: 26px !important;
-    }
-
-}
-/* =========================================
-   RSVP SUCCESS POPUP
-   ========================================= */
-
-.success-popup {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(0, 0, 0, 0.45);
-
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-
-    padding: 20px;
-    box-sizing: border-box;
-
-    z-index: 99999;
-}
-
-.success-popup.show {
-    display: flex !important;
-}
-
-.success-content {
-    width: 100%;
-    max-width: 420px;
-
-    background: #fffaf5;
-
-    padding: 40px 30px;
-
-    border-radius: 20px;
-
-    text-align: center;
-
-    box-sizing: border-box;
-
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-
-    position: relative;
-
-    z-index: 100000;
-}
-
-.success-icon {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
-
-.success-content h2 {
-    margin: 0 0 15px;
-}
-
-.success-content p {
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.success-content button {
-    padding: 12px 30px;
-
-    border: none;
-    border-radius: 30px;
-
-    cursor: pointer;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .success-popup {
-        padding: 20px;
-    }
-
-    .success-content {
-        max-width: 360px;
-        padding: 32px 22px;
-    }
-
-    .success-content h2 {
-        font-size: 26px;
-    }
-
-    .success-content p {
-        font-size: 15px;
-    }
-
-    .success-content button {
-        width: 100%;
-        max-width: 200px;
-    }
-
-}
-/* =========================================
-   DRESS CODE
-   ========================================= */
-
-.dress-code-section {
-    padding: 100px 20px;
-    background: #fffaf7;
-}
-
-.dress-intro {
-    max-width: 650px;
-    margin: -20px auto 45px;
-    text-align: center;
-    color: #806d68;
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-
-/* COLOR PALETTE */
-
-.color-palette {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 22px;
-    max-width: 850px;
-    margin: 0 auto 60px;
-}
-
-.color-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 9px;
-
-    font-size: 12px;
-    color: #75625d;
-}
-
-.color-swatch {
-    width: 58px;
-    height: 58px;
-
-    border-radius: 50%;
-
-    border: 3px solid #fff;
-
-    box-shadow:
-        0 4px 15px rgba(95, 70, 60, 0.12);
-}
-
-
-/* PALETTE COLORS */
-
-.dusty-rose {
-    background: #c9898d;
-}
-
-.terracotta {
-    background: #c77d68;
-}
-
-.warm-mauve {
-    background: #a98286;
-}
-
-.champagne {
-    background: #e5c9a5;
-}
-
-.warm-beige {
-    background: #d8b99b;
-}
-
-.toasted-almond {
-    background: #b58f72;
-}
-
-.ivory {
-    background: #f4eee2;
-}
-
-
-/* DRESS CARDS */
-
-.dress-card {
-    max-width: 850px;
-
-    margin: 0 auto 30px;
-
-    padding: 50px 55px;
-
-    text-align: center;
-
-    background: #fffdfb;
-
-    border: 1px solid rgba(180, 137, 126, 0.22);
-
-    box-shadow:
-        0 15px 45px rgba(101, 70, 60, 0.07);
-
-    border-radius: 4px;
-}
-
-.dress-icon {
-    font-size: 28px;
-    color: #bd8586;
-    margin-bottom: 15px;
-}
-
-.dress-card .small-title {
-    margin-bottom: 10px;
-}
-
-.dress-card h3 {
-    margin: 0 0 20px;
-
-    font-family: Georgia, serif;
-
-    font-size: 27px;
-
-    font-weight: normal;
-
-    color: #674e49;
-}
-
-.dress-card p {
-    max-width: 650px;
-
-    margin: 15px auto;
-
-    color: #796863;
-
-    line-height: 1.8;
-
-    font-size: 15px;
-}
-
-
-/* GODPARENT WHITE */
-
-.white-dress-preview {
-    width: 90px;
-    height: 90px;
-
-    margin: 20px auto;
-
-    border-radius: 50%;
-
-    background: #fffdf8;
-
-    border: 1px solid #eee7dc;
-
-    box-shadow:
-        inset 0 0 0 8px #faf6ee,
-        0 5px 20px rgba(80, 60, 50, 0.08);
-}
-
-
-/* DRESS GUIDELINES */
-
-.dress-guidelines {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 25px;
-
-    max-width: 680px;
-
-    margin: 30px auto;
-}
-
-.dress-guidelines > div {
-    padding: 22px;
-
-    background: #fbf3ef;
-
-    border-radius: 3px;
-}
-
-.dress-guidelines span {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-family: Georgia, serif;
-
-    color: #74544f;
-
-    font-size: 18px;
-}
-
-.dress-guidelines p {
-    margin: 0;
-
-    font-size: 14px;
-}
-
-
-/* NOTES */
-
-.dress-note {
-    font-style: italic;
-
-    color: #9a7b73 !important;
-
-    font-size: 14px !important;
-}
-
-
-/* WHAT TO AVOID */
-
-.avoid-section {
-    max-width: 750px;
-
-    margin: 50px auto 0;
-
-    text-align: center;
-}
-
-.avoid-section h3 {
-    margin: 8px 0 20px;
-
-    font-family: Georgia, serif;
-
-    font-weight: normal;
-
-    color: #674e49;
-}
-
-.avoid-list {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin-bottom: 20px;
-}
-
-.avoid-list span {
-    padding: 8px 15px;
-
-    background: #f5e9e4;
-
-    color: #856862;
-
-    border-radius: 30px;
-
-    font-size: 12px;
-}
-
-.avoid-section > p {
-    max-width: 600px;
-
-    margin: auto;
-
-    color: #806d68;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================
-   GIFT GUIDE
-   ========================================= */
-
-.gift-section {
-    padding: 100px 20px;
-
-    background: #fff;
-}
-
-.gift-intro {
-    max-width: 680px;
-
-    margin: -15px auto 55px;
-
-    text-align: center;
-}
-
-.gift-icon {
-    font-size: 30px;
-
-    color: #bd8586;
-
-    margin-bottom: 18px;
-}
-
-.gift-intro p {
-    margin: 12px auto;
-
-    color: #796863;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-.gift-highlight {
-    margin-top: 25px !important;
-
-    color: #76544f !important;
-}
-
-.gift-highlight strong {
-    font-family: Georgia, serif;
-
-    font-weight: normal;
-
-    color: #9a6969;
-}
-
-
-/* GIFT GRID */
-
-.gift-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-
-    max-width: 1100px;
-
-    margin: 0 auto 45px;
-}
-
-.gift-card {
-    padding: 30px 22px;
-
-    text-align: center;
-
-    background: #fffaf7;
-
-    border: 1px solid rgba(180, 137, 126, 0.18);
-
-    min-height: 280px;
-
-    box-sizing: border-box;
-}
-
-.gift-card-icon {
-    color: #bd8586;
-
-    font-size: 22px;
-
-    margin-bottom: 12px;
-}
-
-.gift-card h3 {
-    margin: 0 0 10px;
-
-    font-family: Georgia, serif;
-
-    font-size: 20px;
-
-    font-weight: normal;
-
-    color: #674e49;
-}
-
-.gift-card > p {
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    color: #8a746e;
-
-    min-height: 42px;
-}
-
-.gift-card ul {
-    list-style: none;
-
-    padding: 0;
-
-    margin: 20px 0 0;
-}
-
-.gift-card li {
-    padding: 5px 0;
-
-    font-size: 13px;
-
-    color: #75635e;
-}
-
-.gift-card li::before {
-    content: "â™¡";
-
-    margin-right: 7px;
-
-    color: #bd8586;
-}
-
-
-/* ANYTHING FROM THE HEART */
-
-.anything-card {
-    max-width: 750px;
-
-    margin: 0 auto 35px;
-
-    padding: 50px;
-
-    text-align: center;
-
-    background: #fbf2ed;
-
-    border: 1px solid rgba(180, 137, 126, 0.15);
-}
-
-.anything-card h3 {
-    margin: 8px 0 15px;
-
-    font-family: Georgia, serif;
-
-    font-size: 27px;
-
-    font-weight: normal;
-
-    color: #674e49;
-}
-
-.anything-card p {
-    color: #806d68;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    margin: 15px auto;
-
-    max-width: 620px;
-}
-
-.heart-message {
-    color: #9a6969 !important;
-
-    font-family: Georgia, serif;
-
-    font-size: 18px !important;
-
-    margin-top: 25px !important;
-}
-
-.no-gift-message {
-    font-size: 14px !important;
-
-    margin-top: 25px !important;
-}
-
-
-/* MONETARY */
-
-.monetary-card {
-    max-width: 650px;
-
-    margin: 0 auto;
-
-    padding: 45px 40px;
-
-    text-align: center;
-
-    background: #fffaf7;
-
-    border: 1px solid rgba(180, 137, 126, 0.2);
-}
-
-.monetary-card h3 {
-    margin: 8px 0 15px;
-
-    font-family: Georgia, serif;
-
-    font-size: 25px;
-
-    font-weight: normal;
-
-    color: #674e49;
-}
-
-.monetary-card > p {
-    color: #806d68;
-
-    line-height: 1.8;
-
-    font-size: 14px;
-
-    max-width: 500px;
-
-    margin: 15px auto;
-}
-
-.monetary-note {
-    font-style: italic;
-
-    color: #9a7b73 !important;
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .dress-code-section,
-    .gift-section {
-        padding: 70px 18px;
-    }
-
-    .dress-intro {
-        font-size: 14px;
-
-        margin-bottom: 35px;
-    }
-
-    .color-palette {
-        gap: 15px;
-
-        margin-bottom: 40px;
-    }
-
-    .color-swatch {
-        width: 45px;
-        height: 45px;
-    }
-
-    .color-item {
-        font-size: 10px;
-    }
-
-    .dress-card {
-        padding: 35px 22px;
-
-        margin-bottom: 20px;
-    }
-
-    .dress-card h3 {
-        font-size: 23px;
-    }
-
-    .dress-card p {
-        font-size: 14px;
-    }
-
-    .dress-guidelines {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-    .dress-guidelines > div {
-        padding: 18px;
-    }
-
-    .avoid-section {
-        margin-top: 35px;
-    }
-
-    .avoid-list {
-        gap: 7px;
-    }
-
-    .avoid-list span {
-        font-size: 10px;
-
-        padding: 7px 11px;
-    }
-
-
-    /* GIFTS */
-
-    .gift-intro {
-        margin-bottom: 40px;
-    }
-
-    .gift-intro p {
-        font-size: 14px;
-    }
-
-    .gift-grid {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 12px;
-
-        margin-bottom: 30px;
-    }
-
-    .gift-card {
-        min-height: auto;
-
-        padding: 25px 15px;
-    }
-
-    .gift-card h3 {
-        font-size: 17px;
-    }
-
-    .gift-card > p {
-        font-size: 12px;
-
-        min-height: auto;
-    }
-
-    .gift-card li {
-        font-size: 11px;
-    }
-
-    .anything-card {
-        padding: 35px 22px;
-    }
-
-    .anything-card h3 {
-        font-size: 23px;
-    }
-
-    .anything-card p {
-        font-size: 14px;
-    }
-
-    .monetary-card {
-        padding: 35px 22px;
-    }
-
-    .monetary-card h3 {
-        font-size: 22px;
-    }
-
-}
-
-
-/* EXTRA SMALL PHONES */
-
-@media (max-width: 400px) {
 
-    .gift-grid {
-        grid-template-columns: 1fr;
+    .count-card h3{
+        font-size:31px;
     }
 
-    .color-palette {
-        gap: 12px;
+    .count-card p{
+        font-size:10px;
     }
 
-    .color-swatch {
-        width: 40px;
-        height: 40px;
+    .invitation-card{
+        width:calc(100% - 30px);
+        padding:30px 17px;
     }
 
 }
