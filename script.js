@@ -708,7 +708,7 @@ if (timelineItems.length > 0) {
    ===================================================== */
 
 const RSVP_ENDPOINT =
-    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+    "https://script.google.com/macros/s/AKfycbzI9QY5w-JE75Mu2iJrwuFi5uSAhlq4HSHEMEAZQjjNjVP_FCL3iTNHAU8S8CmVv_5q9A/exec";
 
 
 const rsvpForm =
