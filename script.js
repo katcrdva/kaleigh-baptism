@@ -211,6 +211,72 @@ if (fadeSections.length > 0) {
 
 
 /* =====================================================
+   NAME STORY BOOK ANIMATION
+   ===================================================== */
+
+const books = document.querySelectorAll(".book");
+
+
+if (books.length > 0) {
+
+    const bookObserver = new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.animate(
+
+                        [
+                            {
+                                opacity: 0,
+                                transform: "translateY(80px) scale(.97)"
+                            },
+
+                            {
+                                opacity: 1,
+                                transform: "translateY(0) scale(1)"
+                            }
+                        ],
+
+                        {
+                            duration: 1400,
+                            fill: "forwards",
+                            easing: "ease"
+                        }
+
+                    );
+
+
+                    bookObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+    books.forEach(function (book) {
+
+        book.style.opacity = "0";
+
+        bookObserver.observe(book);
+
+    });
+
+}
+
+
+/* =====================================================
    GALLERY
    ===================================================== */
 
@@ -495,6 +561,69 @@ document.addEventListener("keydown", function (event) {
 
 
 /* =====================================================
+   BIRTH CARDS
+   ===================================================== */
+
+const birthCards =
+    document.querySelectorAll(".birth-card");
+
+
+if (birthCards.length > 0) {
+
+    const birthGrid =
+        document.querySelector(".birth-grid");
+
+
+    if (birthGrid) {
+
+        const birthObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            birthCards.forEach(
+                                function (card, index) {
+
+                                    setTimeout(
+                                        function () {
+
+                                            card.classList.add("show");
+
+                                        },
+                                        index * 180
+                                    );
+
+                                }
+                            );
+
+
+                            birthObserver.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.25
+                }
+
+            );
+
+
+        birthObserver.observe(birthGrid);
+
+    }
+
+}
+
+
+/* =====================================================
    COUNTDOWN
    ===================================================== */
 
@@ -696,20 +825,8 @@ if (timelineItems.length > 0) {
 
 
 /* =====================================================
-   RSVP  →  GOOGLE SHEETS  →  SUCCESS POPUP
-   =====================================================
-
-   SETUP:
-   Paste your Google Apps Script Web App URL below.
-   Steps are inside rsvp-google-apps-script.gs
-
-   The popup only appears AFTER Google Sheets confirms
-   that the response has been recorded.
+   RSVP
    ===================================================== */
-
-const RSVP_ENDPOINT =
-    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
 
 const rsvpForm =
     document.getElementById("rsvpForm");
@@ -720,57 +837,16 @@ const successPopup =
 const closePopupButton =
     document.getElementById("closePopupButton");
 
-const popupMessage =
-    document.getElementById("popupMessage");
 
-const submitButton =
-    document.getElementById("submitBtn");
-
-const rsvpError =
-    document.getElementById("rsvpError");
-
-
-function showRsvpError(message) {
-
-    if (!rsvpError) {
-        return;
-    }
-
-    rsvpError.textContent = message;
-
-    rsvpError.hidden = false;
-
-}
-
-
-function openPopup(isAttending) {
-
-    if (!successPopup) {
-        return;
-    }
-
-    if (popupMessage) {
-
-        popupMessage.innerHTML = isAttending
-            ? "Your RSVP has been received.<br><br>We can't wait to celebrate Kaleigh's Baptism with you."
-            : "Your response has been received.<br><br>You will be missed, and we're grateful you let us know.";
-
-    }
-
-    successPopup.classList.add("show");
-
-    if (closePopupButton) {
-        closePopupButton.focus();
-    }
-
-}
-
+/*
+ * RSVP submission.
+ */
 
 if (rsvpForm) {
 
     rsvpForm.addEventListener(
         "submit",
-        async function (event) {
+        function (event) {
 
             /*
              * Prevent browser refresh.
@@ -778,123 +854,23 @@ if (rsvpForm) {
 
             event.preventDefault();
 
-            if (rsvpError) {
-                rsvpError.hidden = true;
+
+            /*
+             * Show success popup.
+             */
+
+            if (successPopup) {
+
+                successPopup.classList.add("show");
+
             }
 
 
             /*
-             * Hidden spam-trap field.
-             * Real guests never see or fill it.
+             * Clear form fields.
              */
 
-            const trap =
-                rsvpForm.querySelector("#website");
-
-            if (trap && trap.value.trim() !== "") {
-                return;
-            }
-
-
-            /*
-             * Make sure the Google Sheets link was added.
-             */
-
-            if (RSVP_ENDPOINT.indexOf("PASTE_YOUR") !== -1) {
-
-                console.error(
-                    "RSVP ERROR: Set RSVP_ENDPOINT in script.js to your Google Apps Script Web App URL."
-                );
-
-                showRsvpError(
-                    "The RSVP form isn't connected yet. Please try again later."
-                );
-
-                return;
-
-            }
-
-
-            const formData =
-                new FormData(rsvpForm);
-
-            const attendance =
-                formData.get("attendance");
-
-            const payload =
-                new URLSearchParams({
-                    name: (formData.get("name") || "").toString().trim(),
-                    adults: formData.get("adults") || "0",
-                    children: formData.get("children") || "0",
-                    attendance: attendance || "",
-                    message: (formData.get("message") || "").toString().trim()
-                });
-
-
-            const originalLabel =
-                submitButton ? submitButton.textContent : "";
-
-            if (submitButton) {
-                submitButton.disabled = true;
-                submitButton.textContent = "Sending...";
-            }
-
-
-            try {
-
-                const response =
-                    await fetch(
-                        RSVP_ENDPOINT,
-                        {
-                            method: "POST",
-                            body: payload
-                        }
-                    );
-
-                const result =
-                    await response.json();
-
-                if (!result || result.result !== "success") {
-
-                    throw new Error(
-                        result && result.error
-                            ? result.error
-                            : "Unknown error"
-                    );
-
-                }
-
-
-                /*
-                 * Recorded in Google Sheets.
-                 * Clear the form and celebrate.
-                 */
-
-                rsvpForm.reset();
-
-                openPopup(attendance === "Joyfully Accepts");
-
-            }
-            catch (error) {
-
-                console.error(
-                    "RSVP could not be saved:",
-                    error
-                );
-
-                showRsvpError(
-                    "We couldn't record your RSVP just now. Please check your connection and try again."
-                );
-
-            }
-            finally {
-
-                if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalLabel;
-                }
-
-            }
+            rsvpForm.reset();
 
         }
     );
@@ -909,10 +885,13 @@ if (rsvpForm) {
 function closePopup() {
 
     if (successPopup) {
+
         successPopup.classList.remove("show");
+
     }
 
 }
+
 
 /*
  * Make function available globally
@@ -932,7 +911,9 @@ if (closePopupButton) {
     closePopupButton.addEventListener(
         "click",
         function () {
+
             closePopup();
+
         }
     );
 
@@ -950,8 +931,12 @@ if (successPopup) {
         "click",
         function (event) {
 
-            if (event.target === successPopup) {
+            if (
+                event.target === successPopup
+            ) {
+
                 closePopup();
+
             }
 
         }
@@ -974,7 +959,9 @@ document.addEventListener(
                 successPopup &&
                 successPopup.classList.contains("show")
             ) {
+
                 closePopup();
+
             }
 
         }
